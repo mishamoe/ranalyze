@@ -22,6 +22,15 @@
 		908B3A6822872EAC0052AC8C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A6722872EAC0052AC8C /* InterfaceController.swift */; };
 		908B3A6A22872EAC0052AC8C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A6922872EAC0052AC8C /* ExtensionDelegate.swift */; };
 		908B3A6C22872EAD0052AC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A6B22872EAD0052AC8C /* Assets.xcassets */; };
+		908B3A7E228735210052AC8C /* 2353588335.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A7C228735210052AC8C /* 2353588335.gpx */; };
+		908B3A7F228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A7D228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx */; };
+		908B3A82228738110052AC8C /* ElevationCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A81228738110052AC8C /* ElevationCalculator.swift */; };
+		908B3A8B22873ABB0052AC8C /* RanalyseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A8A22873ABB0052AC8C /* RanalyseTests.swift */; };
+		908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A9222873AE50052AC8C /* DistanceCalculator.swift */; };
+		908B3A9522873B210052AC8C /* DistanceCalculatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A9422873B210052AC8C /* DistanceCalculatorTest.swift */; };
+		908B3A9722875E420052AC8C /* DurationCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A9622875E420052AC8C /* DurationCalculator.swift */; };
+		908B3A99228760A80052AC8C /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A98228760A80052AC8C /* Run.swift */; };
+		908B3A9B228763BC0052AC8C /* TimeInterval+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A9A228763BC0052AC8C /* TimeInterval+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +47,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 908B3A6122872EAC0052AC8C;
 			remoteInfo = "Ranalyse WatchKit Extension";
+		};
+		908B3A8D22873ABB0052AC8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 908B3A3922872EA90052AC8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 908B3A4022872EA90052AC8C;
+			remoteInfo = Ranalyse;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -87,6 +103,17 @@
 		908B3A6922872EAC0052AC8C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		908B3A6B22872EAD0052AC8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		908B3A6D22872EAD0052AC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		908B3A7C228735210052AC8C /* 2353588335.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 2353588335.gpx; sourceTree = "<group>"; };
+		908B3A7D228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Nova_Poshta_Kyiv_Half_Marathon.gpx; sourceTree = "<group>"; };
+		908B3A81228738110052AC8C /* ElevationCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationCalculator.swift; sourceTree = "<group>"; };
+		908B3A8822873ABB0052AC8C /* RanalyseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RanalyseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		908B3A8A22873ABB0052AC8C /* RanalyseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanalyseTests.swift; sourceTree = "<group>"; };
+		908B3A8C22873ABB0052AC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		908B3A9222873AE50052AC8C /* DistanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculator.swift; sourceTree = "<group>"; };
+		908B3A9422873B210052AC8C /* DistanceCalculatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorTest.swift; sourceTree = "<group>"; };
+		908B3A9622875E420052AC8C /* DurationCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationCalculator.swift; sourceTree = "<group>"; };
+		908B3A98228760A80052AC8C /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		908B3A9A228763BC0052AC8C /* TimeInterval+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+extensions.swift"; sourceTree = "<group>"; };
 		CB43990B1DB10AC54FD3B874 /* Pods-Ranalyse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse.debug.xcconfig"; path = "Target Support Files/Pods-Ranalyse/Pods-Ranalyse.debug.xcconfig"; sourceTree = "<group>"; };
 		CBC6101A64C6B4AFE8348EC3 /* Pods-Ranalyse WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit Extension/Pods-Ranalyse WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		E88FB2C3AAC1504AD438E7DE /* Pods-Ranalyse WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit App/Pods-Ranalyse WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +146,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		908B3A8522873ABB0052AC8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -142,7 +176,6 @@
 				FF2281C30B4D2DF63AB3F212 /* Pods-Ranalyse WatchKit Extension.debug.xcconfig */,
 				CBC6101A64C6B4AFE8348EC3 /* Pods-Ranalyse WatchKit Extension.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -152,6 +185,7 @@
 				908B3A4322872EA90052AC8C /* Ranalyse */,
 				908B3A5722872EAC0052AC8C /* Ranalyse WatchKit App */,
 				908B3A6622872EAC0052AC8C /* Ranalyse WatchKit Extension */,
+				908B3A8922873ABB0052AC8C /* RanalyseTests */,
 				908B3A4222872EA90052AC8C /* Products */,
 				5D15FA098E0CC777BF44852D /* Pods */,
 				0B3D5B0E8B5C01E5FE786156 /* Frameworks */,
@@ -164,6 +198,7 @@
 				908B3A4122872EA90052AC8C /* Ranalyse.app */,
 				908B3A5322872EAC0052AC8C /* Ranalyse WatchKit App.app */,
 				908B3A6222872EAC0052AC8C /* Ranalyse WatchKit Extension.appex */,
+				908B3A8822873ABB0052AC8C /* RanalyseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,10 +207,12 @@
 			isa = PBXGroup;
 			children = (
 				908B3A4422872EA90052AC8C /* AppDelegate.swift */,
-				908B3A4622872EA90052AC8C /* ViewController.swift */,
-				908B3A4822872EA90052AC8C /* Main.storyboard */,
+				908B3A9D228764F30052AC8C /* Models */,
+				908B3A9E228765100052AC8C /* ViewControllers */,
+				908B3A9F2287652E0052AC8C /* Storyboards */,
+				908B3A9C228763C20052AC8C /* Extensions */,
+				908B3A80228735290052AC8C /* GPX Examples */,
 				908B3A4B22872EAC0052AC8C /* Assets.xcassets */,
-				908B3A4D22872EAC0052AC8C /* LaunchScreen.storyboard */,
 				908B3A5022872EAC0052AC8C /* Info.plist */,
 			);
 			path = Ranalyse;
@@ -200,6 +237,69 @@
 				908B3A6D22872EAD0052AC8C /* Info.plist */,
 			);
 			path = "Ranalyse WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		908B3A80228735290052AC8C /* GPX Examples */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A7C228735210052AC8C /* 2353588335.gpx */,
+				908B3A7D228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx */,
+			);
+			path = "GPX Examples";
+			sourceTree = "<group>";
+		};
+		908B3A83228738190052AC8C /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A98228760A80052AC8C /* Run.swift */,
+				908B3A81228738110052AC8C /* ElevationCalculator.swift */,
+				908B3A9222873AE50052AC8C /* DistanceCalculator.swift */,
+				908B3A9622875E420052AC8C /* DurationCalculator.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		908B3A8922873ABB0052AC8C /* RanalyseTests */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A9422873B210052AC8C /* DistanceCalculatorTest.swift */,
+				908B3A8A22873ABB0052AC8C /* RanalyseTests.swift */,
+				908B3A8C22873ABB0052AC8C /* Info.plist */,
+			);
+			path = RanalyseTests;
+			sourceTree = "<group>";
+		};
+		908B3A9C228763C20052AC8C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A9A228763BC0052AC8C /* TimeInterval+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		908B3A9D228764F30052AC8C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A83228738190052AC8C /* Analysis */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		908B3A9E228765100052AC8C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A4622872EA90052AC8C /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		908B3A9F2287652E0052AC8C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A4822872EA90052AC8C /* Main.storyboard */,
+				908B3A4D22872EAC0052AC8C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +363,24 @@
 			productReference = 908B3A6222872EAC0052AC8C /* Ranalyse WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		908B3A8722873ABB0052AC8C /* RanalyseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 908B3A8F22873ABB0052AC8C /* Build configuration list for PBXNativeTarget "RanalyseTests" */;
+			buildPhases = (
+				908B3A8422873ABB0052AC8C /* Sources */,
+				908B3A8522873ABB0052AC8C /* Frameworks */,
+				908B3A8622873ABB0052AC8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				908B3A8E22873ABB0052AC8C /* PBXTargetDependency */,
+			);
+			name = RanalyseTests;
+			productName = RanalyseTests;
+			productReference = 908B3A8822873ABB0052AC8C /* RanalyseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -282,6 +400,10 @@
 					908B3A6122872EAC0052AC8C = {
 						CreatedOnToolsVersion = 10.2;
 					};
+					908B3A8722873ABB0052AC8C = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 908B3A4022872EA90052AC8C;
+					};
 				};
 			};
 			buildConfigurationList = 908B3A3C22872EA90052AC8C /* Build configuration list for PBXProject "Ranalyse" */;
@@ -300,6 +422,7 @@
 				908B3A4022872EA90052AC8C /* Ranalyse */,
 				908B3A5222872EAC0052AC8C /* Ranalyse WatchKit App */,
 				908B3A6122872EAC0052AC8C /* Ranalyse WatchKit Extension */,
+				908B3A8722873ABB0052AC8C /* RanalyseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -309,7 +432,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908B3A7E228735210052AC8C /* 2353588335.gpx in Resources */,
 				908B3A4F22872EAC0052AC8C /* LaunchScreen.storyboard in Resources */,
+				908B3A7F228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx in Resources */,
 				908B3A4C22872EAC0052AC8C /* Assets.xcassets in Resources */,
 				908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */,
 			);
@@ -329,6 +454,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				908B3A6C22872EAD0052AC8C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		908B3A8622873ABB0052AC8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +562,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,
+				908B3A9B228763BC0052AC8C /* TimeInterval+extensions.swift in Sources */,
+				908B3A99228760A80052AC8C /* Run.swift in Sources */,
+				908B3A9722875E420052AC8C /* DurationCalculator.swift in Sources */,
 				908B3A4722872EA90052AC8C /* ViewController.swift in Sources */,
+				908B3A82228738110052AC8C /* ElevationCalculator.swift in Sources */,
 				908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +578,15 @@
 			files = (
 				908B3A6A22872EAC0052AC8C /* ExtensionDelegate.swift in Sources */,
 				908B3A6822872EAC0052AC8C /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		908B3A8422873ABB0052AC8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				908B3A9522873B210052AC8C /* DistanceCalculatorTest.swift in Sources */,
+				908B3A8B22873ABB0052AC8C /* RanalyseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +602,11 @@
 			isa = PBXTargetDependency;
 			target = 908B3A6122872EAC0052AC8C /* Ranalyse WatchKit Extension */;
 			targetProxy = 908B3A6422872EAC0052AC8C /* PBXContainerItemProxy */;
+		};
+		908B3A8E22873ABB0052AC8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 908B3A4022872EA90052AC8C /* Ranalyse */;
+			targetProxy = 908B3A8D22873ABB0052AC8C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -727,6 +878,46 @@
 			};
 			name = Release;
 		};
+		908B3A9022873ABB0052AC8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HMU8UE2Z7Q;
+				INFOPLIST_FILE = RanalyseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mykhailo.moiseienko.RanalyseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ranalyse.app/Ranalyse";
+			};
+			name = Debug;
+		};
+		908B3A9122873ABB0052AC8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HMU8UE2Z7Q;
+				INFOPLIST_FILE = RanalyseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mykhailo.moiseienko.RanalyseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ranalyse.app/Ranalyse";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -762,6 +953,15 @@
 			buildConfigurations = (
 				908B3A7922872EAD0052AC8C /* Debug */,
 				908B3A7A22872EAD0052AC8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		908B3A8F22873ABB0052AC8C /* Build configuration list for PBXNativeTarget "RanalyseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				908B3A9022873ABB0052AC8C /* Debug */,
+				908B3A9122873ABB0052AC8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

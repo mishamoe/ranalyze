@@ -9,12 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if let run = Run.run(fromGPXFile: "2353588335") {
+            print("Total distance: \(run.distance) meters")
+            print("Total duration: \(run.duration.durationString)")
+        }
     }
 
-
 }
-
