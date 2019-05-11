@@ -5,7 +5,8 @@ target 'Ranalyse' do
   platform :ios, '11.0'
 
   # Pods for Ranalyse
-
+  pod 'CoreGPX', '= 0.5.1'
+  
 end
 
 target 'Ranalyse WatchKit App' do
