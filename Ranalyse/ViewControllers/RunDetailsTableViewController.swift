@@ -79,7 +79,7 @@ class RunDetailsTableViewController: UITableViewController {
         case .averageHeartRate:
             cell.detailTextLabel?.text = "\(run.averageHeartRate) bpm"
         case .cumulativeElevationGain:
-            cell.detailTextLabel?.text = "\(round(run.cumulativeElevationGain)) m"
+            cell.detailTextLabel?.text = String(format: "%.0f m", round(run.cumulativeElevationGain))
         }
 
         return cell
