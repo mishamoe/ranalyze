@@ -18,6 +18,15 @@ struct Run {
     /// Total duration in seconds
     let duration: TimeInterval
     
+    /// Minimal heart rate in BPM (beats per minute)
+    let minHeartRate: Int
+    
+    /// Maximal heart rate in BPM (beats per minute)
+    let maxHeartRate: Int
+    
+    /// Average heart rate in BPM (beats per minute)
+    let averageHeartRate: Int
+    
     init(gpx: GPXRoot) {
         self.gpx = gpx
         
@@ -28,6 +37,12 @@ struct Run {
         // Duration
         let durationCalculator = DurationCalculator()
         duration = durationCalculator.totalDuration(forGPX: gpx)
+        
+        // Heart Rate
+        let heartRateCalculator = HeartRateCalculator()
+        minHeartRate = heartRateCalculator.minHeartRate(forGPX: gpx)
+        maxHeartRate = heartRateCalculator.maxHeartRate(forGPX: gpx)
+        averageHeartRate = heartRateCalculator.averageHeartRate(forGPX: gpx)
     }
 }
 

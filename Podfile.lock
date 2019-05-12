@@ -1,16 +1,22 @@
 PODS:
-  - CoreGPX (0.5.1)
+  - CoreGPX (0.5.5)
 
 DEPENDENCIES:
-  - CoreGPX (= 0.5.1)
+  - CoreGPX (from `https://github.com/mishamoe/CoreGPX.git`, branch `gpxtrackpoint-extensions`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - CoreGPX
+EXTERNAL SOURCES:
+  CoreGPX:
+    :branch: gpxtrackpoint-extensions
+    :git: https://github.com/mishamoe/CoreGPX.git
+
+CHECKOUT OPTIONS:
+  CoreGPX:
+    :commit: 7fa8248529ae7fc1f30842bf88ff31cc219d7188
+    :git: https://github.com/mishamoe/CoreGPX.git
 
 SPEC CHECKSUMS:
-  CoreGPX: bad4d892a6fec4c3ead5b9f0d2bb4dc1a7a0ce4b
+  CoreGPX: 4d0f8f3bae5b405c9e17096d1de5154231c41b5e
 
-PODFILE CHECKSUM: 0f876c9008f3e98366e895914d1d199cb35025e6
+PODFILE CHECKSUM: 2ca049ec4f4051e4fc9781ccdaa70d21ca8d256f
 
 COCOAPODS: 1.6.1
