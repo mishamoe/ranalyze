@@ -81,7 +81,7 @@ class HeartRateCalculator {
         return max
     }
     
-    // MARK: - Maximal Heart Rate
+    // MARK: - Average Heart Rate
     
     func averageHeartRate(forGPX gpx: GPXRoot) -> Int {
         let heartRateArray = gpx.tracks.map { averageHeartRate(forTrack: $0) }

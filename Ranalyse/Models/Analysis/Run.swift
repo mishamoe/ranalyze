@@ -39,6 +39,9 @@ struct Run {
     /// Total Elevation Loss in meters
 //    let totalElevationLoss: Int
     
+    /// Relative Effort
+    let relativeEffort: Double
+    
     init(gpx: GPXRoot) {
         self.gpx = gpx
         
@@ -63,6 +66,9 @@ struct Run {
         let elevationCalculator = ElevationCalculator()
         cumulativeElevationGain = elevationCalculator.cumulativeElevationGain(forGPX: gpx)
 //        totalElevationLoss = elevationCalculator.totalElevationLoss(forGPX: gpx)
+        
+        // Relative Effort
+        relativeEffort = 0.0
     }
 }
 
