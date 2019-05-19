@@ -1,5 +1,5 @@
 //
-//  GPXTrackPoint+heartRate.swift
+//  GPXTrackPoint+extensions.swift
 //  Ranalyse
 //
 //  Created by Mykhailo Moiseienko on 5/12/19.

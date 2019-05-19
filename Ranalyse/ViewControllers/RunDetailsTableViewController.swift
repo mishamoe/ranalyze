@@ -49,6 +49,8 @@ class RunDetailsTableViewController: UITableViewController {
         assert(run != nil)
         
         title = run.name
+        
+        _ = run.splits
     }
 
     // MARK: - Table view data source

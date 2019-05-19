@@ -39,9 +39,12 @@ class RunsListViewController: UIViewController {
     
     @objc
     private func loadData() {
-        let gpxFileNames = ["Nova_Poshta_Kyiv_Half_Marathon",
-                            "May_9",
-                            "May_12"]
+        let gpxFileNames = [
+            "Nova_Poshta_Kyiv_Half_Marathon",
+            "May_9",
+            "May_12",
+            "NRC_Saturday_Run"
+        ]
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.runs = gpxFileNames

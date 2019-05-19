@@ -1,5 +1,5 @@
 //
-//  TimeInterval+extensions.swift
+//  Double+extensions.swift
 //  Ranalyse
 //
 //  Created by Mykhailo Moiseienko on 5/11/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension TimeInterval{
+extension Double {
     var durationString: String {
         let time = NSInteger(self)
         
@@ -18,4 +18,12 @@ extension TimeInterval{
         
         return String(format: "%0.2d:%0.2d:%0.2d", hours, minutes, seconds)
     }
+
+    var paceString: String {
+        let minutes = Int(floor(self))
+        let seconds = Int((self - floor(self)) * 60)
+        
+        return String(format: "%d:%02d", minutes, seconds)
+    }
 }
+

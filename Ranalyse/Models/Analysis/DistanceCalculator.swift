@@ -32,7 +32,7 @@ class DistanceCalculator {
             let point1 = trackSegment.trackpoints[i - 1]
             let point2 = trackSegment.trackpoints[i]
             
-            let distance = distanceBetweenPoints(point1: point1, point2: point2)
+            let distance = DistanceCalculator.distanceBetweenPoints(point1: point1, point2: point2)
             totalDistance += distance
         }
         
@@ -40,7 +40,7 @@ class DistanceCalculator {
     }
     
     /// Calculate Geodesic Distance with Hubeny Formula
-    func distanceBetweenPoints(point1: GPXTrackPoint, point2: GPXTrackPoint) -> Double {
+    class func distanceBetweenPoints(point1: GPXTrackPoint, point2: GPXTrackPoint) -> Double {
         let lat1 = point1.latitude ?? 0.0
         let lon1 = point1.longitude ?? 0.0
         let lat2 = point2.latitude ?? 0.0

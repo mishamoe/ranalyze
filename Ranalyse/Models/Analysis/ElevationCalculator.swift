@@ -28,13 +28,13 @@ class ElevationCalculator {
             let point1 = trackSegment.trackpoints[i - 1]
             let point2 = trackSegment.trackpoints[i]
             
-            let difference = elevationDifferenceBetweenPoints(point1: point1, point2: point2)
+            let difference = ElevationCalculator.elevationDifferenceBetweenPoints(point1: point1, point2: point2)
             cumulativeElevationGain += difference > 0 ? difference : 0
         }
         return cumulativeElevationGain
     }
     
-    func elevationDifferenceBetweenPoints(point1: GPXTrackPoint, point2: GPXTrackPoint) -> Double {
+    class func elevationDifferenceBetweenPoints(point1: GPXTrackPoint, point2: GPXTrackPoint) -> Double {
         return (point2.elevation ?? 0) - (point1.elevation ?? 0)
     }
 }

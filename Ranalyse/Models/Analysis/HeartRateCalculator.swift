@@ -96,7 +96,11 @@ class HeartRateCalculator {
     }
     
     func averageHeartRate(forTrackSegment trackSegment: GPXTrackSegment) -> Int? {
-        let heartRateArray = trackSegment.trackpoints.compactMap { $0.heartRate }
+        return HeartRateCalculator.averageHeartRate(forPoints: trackSegment.trackpoints)
+    }
+    
+    class func averageHeartRate(forPoints points: [GPXTrackPoint]) -> Int? {
+        let heartRateArray = points.compactMap { $0.heartRate }
         
         guard !heartRateArray.isEmpty else { return nil }
         
