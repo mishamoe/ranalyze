@@ -25,13 +25,13 @@ struct Run {
     let duration: TimeInterval
     
     /// Minimal heart rate in BPM (beats per minute)
-    let minHeartRate: Int
+    let minHeartRate: Int?
     
     /// Maximal heart rate in BPM (beats per minute)
-    let maxHeartRate: Int
+    let maxHeartRate: Int?
     
     /// Average heart rate in BPM (beats per minute)
-    let averageHeartRate: Int
+    let averageHeartRate: Int?
     
     /// Cumulative Elevation Gain in meters
     let cumulativeElevationGain: Double

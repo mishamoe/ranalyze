@@ -13,90 +13,93 @@ class HeartRateCalculator {
     
     // MARK: - Minimal Heart Rate
     
-    func minHeartRate(forGPX gpx: GPXRoot) -> Int {
+    func minHeartRate(forGPX gpx: GPXRoot) -> Int? {
         var min = Int.max
         for track in gpx.tracks {
-            let heartRate = minHeartRate(forTrack: track)
-            if  heartRate < min {
+            if let heartRate = minHeartRate(forTrack: track), heartRate < min {
                 min = heartRate
             }
         }
-        return min
+        return min == Int.max ? nil : min
     }
     
-    func minHeartRate(forTrack track: GPXTrack) -> Int {
+    func minHeartRate(forTrack track: GPXTrack) -> Int? {
         var min = Int.max
         for tracksegment in track.tracksegments {
-            let heartRate = minHeartRate(forTrackSegment: tracksegment)
-            if  heartRate < min {
+            if let heartRate = minHeartRate(forTrackSegment: tracksegment), heartRate < min {
                 min = heartRate
             }
         }
-        return min
+        return min == Int.max ? nil : min
     }
     
-    func minHeartRate(forTrackSegment trackSegment: GPXTrackSegment) -> Int {
+    func minHeartRate(forTrackSegment trackSegment: GPXTrackSegment) -> Int? {
         var min = Int.max
         for point in trackSegment.trackpoints {
-            let heartRate = point.heartRate ?? 0
-            if  heartRate < min {
+            if let heartRate = point.heartRate, heartRate < min {
                 min = heartRate
             }
         }
-        return min
+        return min == Int.max ? nil : min
     }
     
     // MARK: - Maximal Heart Rate
     
-    func maxHeartRate(forGPX gpx: GPXRoot) -> Int {
+    func maxHeartRate(forGPX gpx: GPXRoot) -> Int? {
         var max = Int.min
         for track in gpx.tracks {
-            let heartRate = maxHeartRate(forTrack: track)
-            if  heartRate > max {
+            if let heartRate = maxHeartRate(forTrack: track), heartRate > max {
                 max = heartRate
             }
         }
-        return max
+        return max == Int.min ? nil : max
     }
     
-    func maxHeartRate(forTrack track: GPXTrack) -> Int {
+    func maxHeartRate(forTrack track: GPXTrack) -> Int? {
         var max = Int.min
         for tracksegment in track.tracksegments {
-            let heartRate = maxHeartRate(forTrackSegment: tracksegment)
-            if  heartRate > max {
+            if let heartRate = maxHeartRate(forTrackSegment: tracksegment), heartRate > max {
                 max = heartRate
             }
         }
-        return max
+        return max == Int.min ? nil : max
     }
     
-    func maxHeartRate(forTrackSegment trackSegment: GPXTrackSegment) -> Int {
+    func maxHeartRate(forTrackSegment trackSegment: GPXTrackSegment) -> Int? {
         var max = Int.min
         for point in trackSegment.trackpoints {
-            let heartRate = point.heartRate ?? 0
-            if  heartRate > max {
+            if let heartRate = point.heartRate, heartRate > max {
                 max = heartRate
             }
         }
-        return max
+        return max == Int.min ? nil : max
     }
     
     // MARK: - Average Heart Rate
     
-    func averageHeartRate(forGPX gpx: GPXRoot) -> Int {
-        let heartRateArray = gpx.tracks.map { averageHeartRate(forTrack: $0) }
+    func averageHeartRate(forGPX gpx: GPXRoot) -> Int? {
+        let heartRateArray = gpx.tracks.compactMap { averageHeartRate(forTrack: $0) }
+        
+        guard !heartRateArray.isEmpty else { return nil }
+        
         let sum = heartRateArray.reduce(0, +)
         return sum / heartRateArray.count
     }
     
-    func averageHeartRate(forTrack track: GPXTrack) -> Int {
-        let heartRateArray = track.tracksegments.map { averageHeartRate(forTrackSegment: $0) }
+    func averageHeartRate(forTrack track: GPXTrack) -> Int? {
+        let heartRateArray = track.tracksegments.compactMap { averageHeartRate(forTrackSegment: $0) }
+        
+        guard !heartRateArray.isEmpty else { return nil }
+        
         let sum = heartRateArray.reduce(0, +)
         return sum / heartRateArray.count
     }
     
-    func averageHeartRate(forTrackSegment trackSegment: GPXTrackSegment) -> Int {
+    func averageHeartRate(forTrackSegment trackSegment: GPXTrackSegment) -> Int? {
         let heartRateArray = trackSegment.trackpoints.compactMap { $0.heartRate }
+        
+        guard !heartRateArray.isEmpty else { return nil }
+        
         let sum = heartRateArray.reduce(0, +)
         return sum / heartRateArray.count
     }

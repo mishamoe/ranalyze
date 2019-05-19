@@ -66,6 +66,7 @@ class RunDetailsTableViewController: UITableViewController {
         let detail = details[indexPath.row]
         
         cell.textLabel?.text = detail.title
+        cell.detailTextLabel?.text = NSLocalizedString("N/A", comment: "")
         
         switch detail {
         case .distance:
@@ -73,11 +74,17 @@ class RunDetailsTableViewController: UITableViewController {
         case .duration:
             cell.detailTextLabel?.text = run.duration.durationString
         case .minHeartRate:
-            cell.detailTextLabel?.text = "\(run.minHeartRate) bpm"
+            if let minHeartRate = run.minHeartRate {
+                cell.detailTextLabel?.text = "\(minHeartRate) bpm"
+            }
         case .maxHeartRate:
-            cell.detailTextLabel?.text = "\(run.maxHeartRate) bpm"
+            if let maxHeartRate = run.maxHeartRate {
+                cell.detailTextLabel?.text = "\(maxHeartRate) bpm"
+            }
         case .averageHeartRate:
-            cell.detailTextLabel?.text = "\(run.averageHeartRate) bpm"
+            if let averageHeartRate = run.averageHeartRate {
+                cell.detailTextLabel?.text = "\(averageHeartRate) bpm"
+            }
         case .cumulativeElevationGain:
             cell.detailTextLabel?.text = String(format: "%.0f m", round(run.cumulativeElevationGain))
         }
