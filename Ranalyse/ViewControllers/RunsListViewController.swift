@@ -14,22 +14,45 @@ class RunsListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    lazy var refreshControl: UIRefreshControl! = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        return refreshControl
+    }()
+    
     // MARK: - Properties
     
-    private let gpxFileNames = ["Nova_Poshta_Kyiv_Half_Marathon",
-                                "May_9",
-                                "May_12"]
-    
-    private lazy var runs: [Run] = {
-        gpxFileNames
-            .compactMap { Run.run(fromGPXFile: $0) }
-            .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
-    }()
+    private var runs = [Run]()
     
     // MARK: - View Controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
+        loadData()
+    }
+    
+    private func setupView() {
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc
+    private func loadData() {
+        let gpxFileNames = ["Nova_Poshta_Kyiv_Half_Marathon",
+                            "May_9",
+                            "May_12"]
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.runs = gpxFileNames
+                .compactMap { Run.run(fromGPXFile: $0) }
+                .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
+            }
+        }
     }
     
      // MARK: - Navigation
