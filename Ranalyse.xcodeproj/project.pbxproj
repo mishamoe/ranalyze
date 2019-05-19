@@ -37,6 +37,8 @@
 		908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3AAE2288B7B50052AC8C /* RunDetailsTableViewController.swift */; };
 		90A125B22291C43900DD4938 /* NRC_Saturday_Run.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 90A125B12291C43900DD4938 /* NRC_Saturday_Run.gpx */; };
 		90A125B42291EBEF00DD4938 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B32291EBEF00DD4938 /* Split.swift */; };
+		90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B52291F0F300DD4938 /* SplitsViewController.swift */; };
+		90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 		908B3AAE2288B7B50052AC8C /* RunDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsTableViewController.swift; sourceTree = "<group>"; };
 		90A125B12291C43900DD4938 /* NRC_Saturday_Run.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NRC_Saturday_Run.gpx; sourceTree = "<group>"; };
 		90A125B32291EBEF00DD4938 /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
+		90A125B52291F0F300DD4938 /* SplitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitsViewController.swift; sourceTree = "<group>"; };
+		90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTableViewCell.swift; sourceTree = "<group>"; };
 		CB43990B1DB10AC54FD3B874 /* Pods-Ranalyse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse.debug.xcconfig"; path = "Target Support Files/Pods-Ranalyse/Pods-Ranalyse.debug.xcconfig"; sourceTree = "<group>"; };
 		CBC6101A64C6B4AFE8348EC3 /* Pods-Ranalyse WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit Extension/Pods-Ranalyse WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		E88FB2C3AAC1504AD438E7DE /* Pods-Ranalyse WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit App/Pods-Ranalyse WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				908B3A4422872EA90052AC8C /* AppDelegate.swift */,
 				908B3A9D228764F30052AC8C /* Models */,
+				90A125B92291F1F500DD4938 /* Views */,
 				908B3A9E228765100052AC8C /* ViewControllers */,
 				908B3A9F2287652E0052AC8C /* Storyboards */,
 				908B3A9C228763C20052AC8C /* Extensions */,
@@ -307,6 +312,7 @@
 			children = (
 				908B3A4622872EA90052AC8C /* RunsListViewController.swift */,
 				908B3AAE2288B7B50052AC8C /* RunDetailsTableViewController.swift */,
+				90A125B52291F0F300DD4938 /* SplitsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -318,6 +324,22 @@
 				908B3A4D22872EAC0052AC8C /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		90A125B92291F1F500DD4938 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90A125BA2291F1FD00DD4938 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90A125BA2291F1FD00DD4938 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,6 +607,7 @@
 				908B3AA8228890D80052AC8C /* GPXTrackPoint+extensions.swift in Sources */,
 				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,
 				908B3A9B228763BC0052AC8C /* Double+extensions.swift in Sources */,
+				90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */,
 				908B3A99228760A80052AC8C /* Run.swift in Sources */,
 				908B3A9722875E420052AC8C /* DurationCalculator.swift in Sources */,
 				908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */,
@@ -593,6 +616,7 @@
 				908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */,
 				90A125B42291EBEF00DD4938 /* Split.swift in Sources */,
 				908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */,
+				90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

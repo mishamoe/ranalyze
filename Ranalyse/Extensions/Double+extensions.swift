@@ -23,7 +23,7 @@ extension Double {
         let minutes = Int(floor(self))
         let seconds = Int((self - floor(self)) * 60)
         
-        return String(format: "%d:%02d", minutes, seconds)
+        return String(format: "%d'%02d''", minutes, seconds)
     }
 }
 
