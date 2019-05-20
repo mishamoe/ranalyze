@@ -43,13 +43,15 @@ class SplitTableViewCell: UITableViewCell {
             indexLabel.text = String(format: "%.1f", split.distance / 1_000.0)
         }
         
-        paceLabel.text = split.pace.paceString
+        paceLabel.text = Formatter.pace(split.pace)
         
-        // TODO: implement calculation of split's elevation
-        elevationLabel.text = NSLocalizedString("N/A", comment: "")
+        elevationLabel.text = Formatter.cumulativeElevationGain(split.cumulativeElevationGain)
         
-        // TODO: implement calculation of split's average heart rate
-        heartRateLabel.text = NSLocalizedString("N/A", comment: "")
+        if let averageHeartRate = split.averageHeartRate {
+            heartRateLabel.text = Formatter.heartRate(averageHeartRate)
+        } else {
+            heartRateLabel.text = NSLocalizedString("N/A", comment: "")
+        }
         
         indexLabel.font = UIFont.systemFont(ofSize: 17)
         paceLabel.font = UIFont.systemFont(ofSize: 17)

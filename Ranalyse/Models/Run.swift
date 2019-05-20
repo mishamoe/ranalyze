@@ -30,7 +30,7 @@ public struct Run {
     /// Total duration in seconds
     public let duration: TimeInterval
     
-    /// Cumulative Elevation Gain in meters
+    /// Cumulative Elevation Gain (in meters)
     public let cumulativeElevationGain: Double
     
     /// Minimal heart rate in BPM (beats per minute)
@@ -91,7 +91,7 @@ public struct Run {
             }
             
             print(String(format:"\t+%.2f m | +%.0f s", distance, duration))
-            print(String(format:"%.2f m | %@\n", totalDistance, totalDuration.durationString))
+            print(String(format:"%.2f m | %@\n", totalDistance, Formatter.duration(totalDuration)))
         }
         
         self.name = gpx.tracks.first?.name
@@ -127,17 +127,33 @@ extension Run {
             let currentPoint = allPoints[i]
             
             if currentSplit == nil {
-                currentSplit = Split(index: splits.endIndex + 1, distance: 0.0, time: 0.0)
+                currentSplit = Split(index: splits.endIndex + 1)
             }
             
+            // Add point to split
+            if i == 1 {
+                currentSplit.addPoint(previousPoint)
+            }
+            currentSplit.addPoint(currentPoint)
+            
+            // Distance
             let distance = DistanceCalculator.distanceBetweenPoints(point1: previousPoint, point2: currentPoint)
             currentSplit.distance += distance
             
+            // Time
             let timeInterval = DurationCalculator.timeIntervalBetweenPoints(point1: previousPoint, point2: currentPoint)
             currentSplit.time += timeInterval
             
             if currentSplit.distance >= 1_000.0 || currentPoint == allPoints.last {
-                print(String(format: "%d | %.2f m | %@ | %.2f km/h | %@", currentSplit.index, currentSplit.distance, currentSplit.time.durationString, currentSplit.speed, currentSplit.pace.paceString))
+                print(String(format: "%d | %.2f m | %@ | %.2f km/h | %@", currentSplit.index, currentSplit.distance, Formatter.duration(currentSplit.time), currentSplit.speed, Formatter.pace(currentSplit.pace)))
+                
+                // Average Heart Rate
+                currentSplit.averageHeartRate = HeartRateCalculator
+                    .averageHeartRate(forPoints: currentSplit.points)
+                
+                // Cumulative Elevation Gain
+                currentSplit.cumulativeElevationGain = ElevationCalculator
+                    .cumulativeElevationGain(forPoints: currentSplit.points)
                 
                 splits.append(currentSplit)
                 currentSplit = nil

@@ -23,12 +23,16 @@ class ElevationCalculator {
     }
     
     func cumulativeElevationGain(forTrackSegment trackSegment: GPXTrackSegment) -> Double {
+        return ElevationCalculator.cumulativeElevationGain(forPoints: trackSegment.trackpoints)
+    }
+    
+    class func cumulativeElevationGain(forPoints points: [GPXTrackPoint]) -> Double {
         var cumulativeElevationGain = 0.0
-        for i in 1..<trackSegment.trackpoints.count {
-            let point1 = trackSegment.trackpoints[i - 1]
-            let point2 = trackSegment.trackpoints[i]
+        for i in 1..<points.count {
+            let previousPoint = points[i - 1]
+            let currentPoint = points[i]
             
-            let difference = ElevationCalculator.elevationDifferenceBetweenPoints(point1: point1, point2: point2)
+            let difference = ElevationCalculator.elevationDifferenceBetweenPoints(point1: previousPoint, point2: currentPoint)
             cumulativeElevationGain += difference > 0 ? difference : 0
         }
         return cumulativeElevationGain

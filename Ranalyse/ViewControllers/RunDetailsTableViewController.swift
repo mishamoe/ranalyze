@@ -83,23 +83,23 @@ class RunDetailsTableViewController: UITableViewController {
             
             switch detail {
             case .distance:
-                cell.detailTextLabel?.text = String(format: "%.2f km", run.distance / 1000)
+                cell.detailTextLabel?.text = Formatter.distance(valueInMeters: run.distance)
             case .duration:
-                cell.detailTextLabel?.text = run.duration.durationString
+                cell.detailTextLabel?.text = Formatter.duration(run.duration)
             case .minHeartRate:
                 if let minHeartRate = run.minHeartRate {
-                    cell.detailTextLabel?.text = "\(minHeartRate) bpm"
+                    cell.detailTextLabel?.text = Formatter.heartRate(minHeartRate)
                 }
             case .maxHeartRate:
                 if let maxHeartRate = run.maxHeartRate {
-                    cell.detailTextLabel?.text = "\(maxHeartRate) bpm"
+                    cell.detailTextLabel?.text = Formatter.heartRate(maxHeartRate)
                 }
             case .averageHeartRate:
                 if let averageHeartRate = run.averageHeartRate {
-                    cell.detailTextLabel?.text = "\(averageHeartRate) bpm"
+                    cell.detailTextLabel?.text = Formatter.heartRate(averageHeartRate)
                 }
             case .cumulativeElevationGain:
-                cell.detailTextLabel?.text = String(format: "%.0f m", round(run.cumulativeElevationGain))
+                cell.detailTextLabel?.text = Formatter.cumulativeElevationGain(run.cumulativeElevationGain)
             }
         case 1:
             cell.textLabel?.text = NSLocalizedString("Splits", comment: "")
