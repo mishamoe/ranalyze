@@ -39,6 +39,15 @@
 		90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B52291F0F300DD4938 /* SplitsViewController.swift */; };
 		90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */; };
 		90F3906822933DE500940069 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906722933DE500940069 /* Formatter.swift */; };
+		90F3906A22947F3A00940069 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906922947F3A00940069 /* DataStore.swift */; };
+		90F3906C22947FF000940069 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906B22947FF000940069 /* DataService.swift */; };
+		90F3906E2294814200940069 /* UIViewController+showError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906D2294814200940069 /* UIViewController+showError.swift */; };
+		90F39070229484EC00940069 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906F229484EC00940069 /* SettingsViewController.swift */; };
+		90F39074229489C000940069 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F39073229489C000940069 /* Settings.storyboard */; };
+		90F3907622948A9000940069 /* Runs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F3907522948A9000940069 /* Runs.storyboard */; };
+		90F3907822948AF500940069 /* Predictions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F3907722948AF500940069 /* Predictions.storyboard */; };
+		90F3907A22948E6C00940069 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3907922948E6C00940069 /* SettingsTableViewCell.swift */; };
+		90F3907C229490CF00940069 /* UserDefaults+keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3907B229490CF00940069 /* UserDefaults+keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +139,15 @@
 		90A125B52291F0F300DD4938 /* SplitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitsViewController.swift; sourceTree = "<group>"; };
 		90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTableViewCell.swift; sourceTree = "<group>"; };
 		90F3906722933DE500940069 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		90F3906922947F3A00940069 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		90F3906B22947FF000940069 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		90F3906D2294814200940069 /* UIViewController+showError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showError.swift"; sourceTree = "<group>"; };
+		90F3906F229484EC00940069 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		90F39073229489C000940069 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		90F3907522948A9000940069 /* Runs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Runs.storyboard; sourceTree = "<group>"; };
+		90F3907722948AF500940069 /* Predictions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Predictions.storyboard; sourceTree = "<group>"; };
+		90F3907922948E6C00940069 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		90F3907B229490CF00940069 /* UserDefaults+keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+keys.swift"; sourceTree = "<group>"; };
 		CB43990B1DB10AC54FD3B874 /* Pods-Ranalyse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse.debug.xcconfig"; path = "Target Support Files/Pods-Ranalyse/Pods-Ranalyse.debug.xcconfig"; sourceTree = "<group>"; };
 		CBC6101A64C6B4AFE8348EC3 /* Pods-Ranalyse WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit Extension/Pods-Ranalyse WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		E88FB2C3AAC1504AD438E7DE /* Pods-Ranalyse WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit App/Pods-Ranalyse WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				908B3A4422872EA90052AC8C /* AppDelegate.swift */,
+				90F3906922947F3A00940069 /* DataStore.swift */,
+				90F3906B22947FF000940069 /* DataService.swift */,
 				908B3A9D228764F30052AC8C /* Models */,
 				90A125B92291F1F500DD4938 /* Views */,
 				908B3A9E228765100052AC8C /* ViewControllers */,
@@ -292,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				908B3AA7228890D80052AC8C /* GPXTrackPoint+extensions.swift */,
+				90F3906D2294814200940069 /* UIViewController+showError.swift */,
+				90F3907B229490CF00940069 /* UserDefaults+keys.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,9 +332,8 @@
 		908B3A9E228765100052AC8C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				908B3A4622872EA90052AC8C /* RunsListViewController.swift */,
-				908B3AAE2288B7B50052AC8C /* RunDetailsTableViewController.swift */,
-				90A125B52291F0F300DD4938 /* SplitsViewController.swift */,
+				90F39071229484F800940069 /* Runs */,
+				90F390722294850000940069 /* Settings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -321,6 +342,9 @@
 			isa = PBXGroup;
 			children = (
 				908B3A4822872EA90052AC8C /* Main.storyboard */,
+				90F3907522948A9000940069 /* Runs.storyboard */,
+				90F3907722948AF500940069 /* Predictions.storyboard */,
+				90F39073229489C000940069 /* Settings.storyboard */,
 				908B3A4D22872EAC0052AC8C /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -338,8 +362,27 @@
 			isa = PBXGroup;
 			children = (
 				90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */,
+				90F3907922948E6C00940069 /* SettingsTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		90F39071229484F800940069 /* Runs */ = {
+			isa = PBXGroup;
+			children = (
+				908B3A4622872EA90052AC8C /* RunsListViewController.swift */,
+				908B3AAE2288B7B50052AC8C /* RunDetailsTableViewController.swift */,
+				90A125B52291F0F300DD4938 /* SplitsViewController.swift */,
+			);
+			path = Runs;
+			sourceTree = "<group>";
+		};
+		90F390722294850000940069 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				90F3906F229484EC00940069 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,8 +516,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				908B3A7E228735210052AC8C /* May_9.gpx in Resources */,
+				90F3907622948A9000940069 /* Runs.storyboard in Resources */,
 				908B3A4F22872EAC0052AC8C /* LaunchScreen.storyboard in Resources */,
+				90F3907822948AF500940069 /* Predictions.storyboard in Resources */,
 				908B3A7F228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx in Resources */,
+				90F39074229489C000940069 /* Settings.storyboard in Resources */,
 				90A125B22291C43900DD4938 /* NRC_Saturday_Run.gpx in Resources */,
 				908B3AAB2288B42A0052AC8C /* May_12.gpx in Resources */,
 				908B3A4C22872EAC0052AC8C /* Assets.xcassets in Resources */,
@@ -606,14 +652,20 @@
 			files = (
 				908B3AA8228890D80052AC8C /* GPXTrackPoint+extensions.swift in Sources */,
 				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,
+				90F3907A22948E6C00940069 /* SettingsTableViewCell.swift in Sources */,
 				90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */,
 				908B3A99228760A80052AC8C /* Run.swift in Sources */,
 				908B3A9722875E420052AC8C /* DurationCalculator.swift in Sources */,
 				908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */,
+				90F3907C229490CF00940069 /* UserDefaults+keys.swift in Sources */,
 				908B3A82228738110052AC8C /* ElevationCalculator.swift in Sources */,
+				90F3906A22947F3A00940069 /* DataStore.swift in Sources */,
 				908B3AA1228767170052AC8C /* HeartRateCalculator.swift in Sources */,
+				90F3906C22947FF000940069 /* DataService.swift in Sources */,
 				908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */,
 				90F3906822933DE500940069 /* Formatter.swift in Sources */,
+				90F39070229484EC00940069 /* SettingsViewController.swift in Sources */,
+				90F3906E2294814200940069 /* UIViewController+showError.swift in Sources */,
 				90A125B42291EBEF00DD4938 /* Split.swift in Sources */,
 				908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */,
 				90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */,

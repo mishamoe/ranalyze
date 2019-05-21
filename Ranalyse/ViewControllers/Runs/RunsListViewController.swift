@@ -34,26 +34,21 @@ class RunsListViewController: UIViewController {
     }
     
     private func setupView() {
+        title = NSLocalizedString("Runs", comment: "")
         tableView.refreshControl = refreshControl
     }
     
     @objc
     private func loadData() {
-        let gpxFileNames = [
-            "Nova_Poshta_Kyiv_Half_Marathon",
-            "May_9",
-            "May_12",
-            "NRC_Saturday_Run"
-        ]
-        
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.runs = gpxFileNames
-                .compactMap { Run.run(fromGPXFile: $0) }
-                .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
-            
-            DispatchQueue.main.async {
+        DataStore.shared.loadRuns { [weak self] result in
+            switch result {
+            case .success(let runs):
+                self?.runs = runs
+                
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
+            case .failure(let error):
+                self?.showError(error)
             }
         }
     }
