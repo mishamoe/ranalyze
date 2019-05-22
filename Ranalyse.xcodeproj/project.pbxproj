@@ -27,7 +27,6 @@
 		908B3A82228738110052AC8C /* ElevationCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A81228738110052AC8C /* ElevationCalculator.swift */; };
 		908B3A8B22873ABB0052AC8C /* RanalyseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A8A22873ABB0052AC8C /* RanalyseTests.swift */; };
 		908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A9222873AE50052AC8C /* DistanceCalculator.swift */; };
-		908B3A9522873B210052AC8C /* DistanceCalculatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A9422873B210052AC8C /* DistanceCalculatorTest.swift */; };
 		908B3A9722875E420052AC8C /* DurationCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A9622875E420052AC8C /* DurationCalculator.swift */; };
 		908B3A99228760A80052AC8C /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A98228760A80052AC8C /* Run.swift */; };
 		908B3AA1228767170052AC8C /* HeartRateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3AA0228767170052AC8C /* HeartRateCalculator.swift */; };
@@ -38,6 +37,8 @@
 		90A125B42291EBEF00DD4938 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B32291EBEF00DD4938 /* Split.swift */; };
 		90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B52291F0F300DD4938 /* SplitsViewController.swift */; };
 		90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */; };
+		90E890652295D1FA000ECBE3 /* HeartRateZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E890642295D1FA000ECBE3 /* HeartRateZone.swift */; };
+		90E890672295D56A000ECBE3 /* HeartRateZoneTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E890662295D56A000ECBE3 /* HeartRateZoneTest.swift */; };
 		90F3906822933DE500940069 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906722933DE500940069 /* Formatter.swift */; };
 		90F3906A22947F3A00940069 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906922947F3A00940069 /* DataStore.swift */; };
 		90F3906C22947FF000940069 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906B22947FF000940069 /* DataService.swift */; };
@@ -127,7 +128,6 @@
 		908B3A8A22873ABB0052AC8C /* RanalyseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanalyseTests.swift; sourceTree = "<group>"; };
 		908B3A8C22873ABB0052AC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		908B3A9222873AE50052AC8C /* DistanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculator.swift; sourceTree = "<group>"; };
-		908B3A9422873B210052AC8C /* DistanceCalculatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorTest.swift; sourceTree = "<group>"; };
 		908B3A9622875E420052AC8C /* DurationCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationCalculator.swift; sourceTree = "<group>"; };
 		908B3A98228760A80052AC8C /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		908B3AA0228767170052AC8C /* HeartRateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateCalculator.swift; sourceTree = "<group>"; };
@@ -138,6 +138,8 @@
 		90A125B32291EBEF00DD4938 /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
 		90A125B52291F0F300DD4938 /* SplitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitsViewController.swift; sourceTree = "<group>"; };
 		90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTableViewCell.swift; sourceTree = "<group>"; };
+		90E890642295D1FA000ECBE3 /* HeartRateZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZone.swift; sourceTree = "<group>"; };
+		90E890662295D56A000ECBE3 /* HeartRateZoneTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZoneTest.swift; sourceTree = "<group>"; };
 		90F3906722933DE500940069 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		90F3906922947F3A00940069 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		90F3906B22947FF000940069 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				908B3A9622875E420052AC8C /* DurationCalculator.swift */,
 				908B3AA0228767170052AC8C /* HeartRateCalculator.swift */,
 				908B3A81228738110052AC8C /* ElevationCalculator.swift */,
+				90E890642295D1FA000ECBE3 /* HeartRateZone.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -301,7 +304,7 @@
 		908B3A8922873ABB0052AC8C /* RanalyseTests */ = {
 			isa = PBXGroup;
 			children = (
-				908B3A9422873B210052AC8C /* DistanceCalculatorTest.swift */,
+				90E890662295D56A000ECBE3 /* HeartRateZoneTest.swift */,
 				908B3A8A22873ABB0052AC8C /* RanalyseTests.swift */,
 				908B3A8C22873ABB0052AC8C /* Info.plist */,
 			);
@@ -664,6 +667,7 @@
 				90F3906C22947FF000940069 /* DataService.swift in Sources */,
 				908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */,
 				90F3906822933DE500940069 /* Formatter.swift in Sources */,
+				90E890652295D1FA000ECBE3 /* HeartRateZone.swift in Sources */,
 				90F39070229484EC00940069 /* SettingsViewController.swift in Sources */,
 				90F3906E2294814200940069 /* UIViewController+showError.swift in Sources */,
 				90A125B42291EBEF00DD4938 /* Split.swift in Sources */,
@@ -685,7 +689,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				908B3A9522873B210052AC8C /* DistanceCalculatorTest.swift in Sources */,
+				90E890672295D56A000ECBE3 /* HeartRateZoneTest.swift in Sources */,
 				908B3A8B22873ABB0052AC8C /* RanalyseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
