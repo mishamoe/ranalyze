@@ -9,34 +9,34 @@
 import Foundation
 import CoreGPX
 
-struct Split {
-    let index: Int
+public struct Split {
+    public let index: Int
     
     /// Distance (in meters)
-    var distance: Double
+    public var distance: Double
     
     /// Time (in seconds)
-    var time: TimeInterval
+    public var time: TimeInterval
     
     /// Speed (in kilometers per hour)
-    var speed: Double {
+    public var speed: Double {
         return distance / time * 3.6
     }
     
     /// Pace (in minutes per kilometer)
-    var pace: Double {
+    public var pace: Double {
         return 60.0 / speed
     }
     
     /// Average heart rate in BPM (beats per minute)
-    var averageHeartRate: Int?
+    public var averageHeartRate: Int?
     
     /// Cumulative Elevation Gain (in meters)
-    var cumulativeElevationGain: Double
+    public var cumulativeElevationGain: Double
     
     var points: [GPXTrackPoint]
     
-    init(index: Int) {
+    public init(index: Int) {
         self.index = index
         
         distance = 0.0
@@ -46,7 +46,7 @@ struct Split {
         points = []
     }
     
-    mutating func addPoint(_ point: GPXTrackPoint) {
+    public mutating func addPoint(_ point: GPXTrackPoint) {
         points.append(point)
     }
 }

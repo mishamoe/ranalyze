@@ -16,14 +16,14 @@ class SplitsViewController: UIViewController {
     
     // MARK: - Properties
     
-    var run: Run!
+    var splits: [Split]!
     
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        assert(run?.splits != nil)
+        assert(splits != nil)
         setupView()
     }
     
@@ -42,7 +42,7 @@ extension SplitsViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             return 1
         case 1:
-            return run.splits.count
+            return splits.count
         default:
             return 0
         }
@@ -57,7 +57,7 @@ extension SplitsViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             cell.configureAsHeader()
         case 1:
-            cell.configure(with: run.splits[indexPath.row])
+            cell.configure(with: splits[indexPath.row])
         default:
             break
         }

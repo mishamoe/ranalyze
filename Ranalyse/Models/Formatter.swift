@@ -19,13 +19,17 @@ struct Formatter {
     }
     
     static func duration(_ value: Double) -> String {
-        let time = NSInteger(value)
+        let time = Int(value)
         
         let seconds = time % 60
         let minutes = (time / 60) % 60
         let hours = (time / 3600)
         
-        return String(format: "%0.2d:%0.2d:%0.2d", hours, minutes, seconds)
+        if hours > 0 {
+            return String(format: "%d:%0.2d:%0.2d", hours, minutes, seconds)
+        } else {
+            return String(format: "%d:%0.2d", minutes, seconds)
+        }
     }
     
     static func pace(_ value: Double) -> String {
@@ -41,5 +45,9 @@ struct Formatter {
     
     static func cumulativeElevationGain(_ value: Double) -> String {
         return String(format: "+%.0f m", round(value))
+    }
+    
+    static func range(_ value: ClosedRange<Int>) -> String {
+        return "\(value.lowerBound) - \(value.upperBound)"
     }
 }

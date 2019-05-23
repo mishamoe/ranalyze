@@ -50,9 +50,11 @@ public struct Run {
     
     
     /// 1 kilometer splits
-    lazy var splits: [Split] = {
+    public lazy var splits: [Split] = {
         return generateSplits()
     }()
+    
+    public var heartRateAnalysis: HeartRateAnalysis?
     
     public init(gpx: GPXRoot) {
         self.gpx = gpx
@@ -60,6 +62,10 @@ public struct Run {
             $0.tracksegments.flatMap {
                 $0.trackpoints
             }
+        }
+        
+        if let maxHeartRate: Int = UserDefaults.get(key: .maxHeartRate) {
+            heartRateAnalysis = HeartRateAnalysis(maxHeartRate: maxHeartRate)
         }
         
         var totalDistance = 0.0
@@ -88,6 +94,8 @@ public struct Run {
                 if heartRate > maxHeartRate {
                     maxHeartRate = heartRate
                 }
+                
+                heartRateAnalysis?.addHeartRate(heartRate, for: duration)
             }
             
             print(String(format:"\t+%.2f m | +%.0f s", distance, duration))

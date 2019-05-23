@@ -56,7 +56,7 @@ class RunDetailsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,6 +64,8 @@ class RunDetailsTableViewController: UITableViewController {
         case 0:
             return details.count
         case 1:
+            return 1
+        case 2:
             return 1
         default:
             return 0
@@ -80,6 +82,7 @@ class RunDetailsTableViewController: UITableViewController {
             cell.textLabel?.text = detail.title
             cell.detailTextLabel?.text = NSLocalizedString("N/A", comment: "")
             cell.accessoryType = .none
+            cell.selectionStyle = .none
             
             switch detail {
             case .distance:
@@ -105,6 +108,12 @@ class RunDetailsTableViewController: UITableViewController {
             cell.textLabel?.text = NSLocalizedString("Splits", comment: "")
             cell.detailTextLabel?.text = nil
             cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .default
+        case 2:
+            cell.textLabel?.text = NSLocalizedString("Heart Rate Zones", comment: "")
+            cell.detailTextLabel?.text = nil
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = run.heartRateAnalysis == nil ? .none : .default
         default:
             break
         }
@@ -115,20 +124,31 @@ class RunDetailsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 1 && indexPath.row == 0 {
-            presentSplitsViewController()
+        switch (indexPath.section, indexPath.row)  {
+        case (1, 0): presentSplitsViewController()
+        case (2, 0): presentHeartRateZonesViewController()
+        default: break
         }
     }
     
     // MARK: - Actions
     
     func presentSplitsViewController() {
-        guard let splitsViewController = storyboard?.instantiateViewController(withIdentifier: "SplitsViewController") as? SplitsViewController else {
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "SplitsViewController") as? SplitsViewController else {
             return
         }
         
-        splitsViewController.run = run
-        navigationController?.pushViewController(splitsViewController, animated: true)
+        viewController.splits = run.splits
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func presentHeartRateZonesViewController() {
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "HeartRateZonesViewController") as? HeartRateZonesViewController else {
+            return
+        }
+        
+        viewController.heartRateAnalysis = run.heartRateAnalysis
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

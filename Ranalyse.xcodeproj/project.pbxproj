@@ -10,6 +10,8 @@
 		2988D2360ECBAAA5A813FA79 /* Pods_Ranalyse_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2758F08523D8F01603D422 /* Pods_Ranalyse_WatchKit_Extension.framework */; };
 		2E6EB24B2DC66A94DFB42EAD /* Pods_Ranalyse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400A648857D136892B57298F /* Pods_Ranalyse.framework */; };
 		466D12772D56A8FE2BC86FAB /* Pods_Ranalyse_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DCE530D4B58911C6413E81 /* Pods_Ranalyse_WatchKit_App.framework */; };
+		90814E1222972559006206FD /* HeartRateZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E1122972559006206FD /* HeartRateZonesViewController.swift */; };
+		90814E1422972599006206FD /* HeartRateZoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E1322972599006206FD /* HeartRateZoneTableViewCell.swift */; };
 		908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4422872EA90052AC8C /* AppDelegate.swift */; };
 		908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4622872EA90052AC8C /* RunsListViewController.swift */; };
 		908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A4822872EA90052AC8C /* Main.storyboard */; };
@@ -37,7 +39,7 @@
 		90A125B42291EBEF00DD4938 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B32291EBEF00DD4938 /* Split.swift */; };
 		90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B52291F0F300DD4938 /* SplitsViewController.swift */; };
 		90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */; };
-		90E890652295D1FA000ECBE3 /* HeartRateZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E890642295D1FA000ECBE3 /* HeartRateZone.swift */; };
+		90E890652295D1FA000ECBE3 /* HeartRateAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E890642295D1FA000ECBE3 /* HeartRateAnalysis.swift */; };
 		90E890672295D56A000ECBE3 /* HeartRateZoneTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E890662295D56A000ECBE3 /* HeartRateZoneTest.swift */; };
 		90F3906822933DE500940069 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906722933DE500940069 /* Formatter.swift */; };
 		90F3906A22947F3A00940069 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906922947F3A00940069 /* DataStore.swift */; };
@@ -105,6 +107,8 @@
 		068D617F9BD0EC20E66B57C1 /* Pods-Ranalyse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse/Pods-Ranalyse.release.xcconfig"; sourceTree = "<group>"; };
 		400A648857D136892B57298F /* Pods_Ranalyse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranalyse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D585F9FB33E0F103408F690 /* Pods-Ranalyse WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit App/Pods-Ranalyse WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		90814E1122972559006206FD /* HeartRateZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZonesViewController.swift; sourceTree = "<group>"; };
+		90814E1322972599006206FD /* HeartRateZoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZoneTableViewCell.swift; sourceTree = "<group>"; };
 		908B3A4122872EA90052AC8C /* Ranalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908B3A4422872EA90052AC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B3A4622872EA90052AC8C /* RunsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsListViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +142,7 @@
 		90A125B32291EBEF00DD4938 /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
 		90A125B52291F0F300DD4938 /* SplitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitsViewController.swift; sourceTree = "<group>"; };
 		90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTableViewCell.swift; sourceTree = "<group>"; };
-		90E890642295D1FA000ECBE3 /* HeartRateZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZone.swift; sourceTree = "<group>"; };
+		90E890642295D1FA000ECBE3 /* HeartRateAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateAnalysis.swift; sourceTree = "<group>"; };
 		90E890662295D56A000ECBE3 /* HeartRateZoneTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZoneTest.swift; sourceTree = "<group>"; };
 		90F3906722933DE500940069 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		90F3906922947F3A00940069 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -246,8 +250,8 @@
 				90F3906922947F3A00940069 /* DataStore.swift */,
 				90F3906B22947FF000940069 /* DataService.swift */,
 				908B3A9D228764F30052AC8C /* Models */,
-				90A125B92291F1F500DD4938 /* Views */,
 				908B3A9E228765100052AC8C /* ViewControllers */,
+				90A125B92291F1F500DD4938 /* Views */,
 				908B3A9F2287652E0052AC8C /* Storyboards */,
 				908B3A9C228763C20052AC8C /* Extensions */,
 				908B3A80228735290052AC8C /* GPX Examples */,
@@ -296,7 +300,7 @@
 				908B3A9622875E420052AC8C /* DurationCalculator.swift */,
 				908B3AA0228767170052AC8C /* HeartRateCalculator.swift */,
 				908B3A81228738110052AC8C /* ElevationCalculator.swift */,
-				90E890642295D1FA000ECBE3 /* HeartRateZone.swift */,
+				90E890642295D1FA000ECBE3 /* HeartRateAnalysis.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -366,6 +370,7 @@
 			children = (
 				90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */,
 				90F3907922948E6C00940069 /* SettingsTableViewCell.swift */,
+				90814E1322972599006206FD /* HeartRateZoneTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				908B3A4622872EA90052AC8C /* RunsListViewController.swift */,
 				908B3AAE2288B7B50052AC8C /* RunDetailsTableViewController.swift */,
 				90A125B52291F0F300DD4938 /* SplitsViewController.swift */,
+				90814E1122972559006206FD /* HeartRateZonesViewController.swift */,
 			);
 			path = Runs;
 			sourceTree = "<group>";
@@ -654,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				908B3AA8228890D80052AC8C /* GPXTrackPoint+extensions.swift in Sources */,
+				90814E1222972559006206FD /* HeartRateZonesViewController.swift in Sources */,
 				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,
 				90F3907A22948E6C00940069 /* SettingsTableViewCell.swift in Sources */,
 				90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */,
@@ -667,9 +674,10 @@
 				90F3906C22947FF000940069 /* DataService.swift in Sources */,
 				908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */,
 				90F3906822933DE500940069 /* Formatter.swift in Sources */,
-				90E890652295D1FA000ECBE3 /* HeartRateZone.swift in Sources */,
+				90E890652295D1FA000ECBE3 /* HeartRateAnalysis.swift in Sources */,
 				90F39070229484EC00940069 /* SettingsViewController.swift in Sources */,
 				90F3906E2294814200940069 /* UIViewController+showError.swift in Sources */,
+				90814E1422972599006206FD /* HeartRateZoneTableViewCell.swift in Sources */,
 				90A125B42291EBEF00DD4938 /* Split.swift in Sources */,
 				908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */,
 				90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */,
