@@ -9,7 +9,7 @@
 import Foundation
 import CoreGPX
 
-public struct Split {
+public class Split {
     public let index: Int
     
     /// Distance (in meters)
@@ -46,7 +46,33 @@ public struct Split {
         points = []
     }
     
-    public mutating func addPoint(_ point: GPXTrackPoint) {
+    public func addPoint(_ point: GPXTrackPoint) {
         points.append(point)
+    }
+}
+
+extension Split {
+    func initFromPoints() {
+        // Distance
+        distance = DistanceCalculator.totalDistance(forPoints: points)
+        
+        // Time
+        time = DurationCalculator.totalDuration(forPoints: points)
+        
+        // Average Heart Rate
+        averageHeartRate = HeartRateCalculator.averageHeartRate(forPoints: points)
+        
+        // Cumulative Elevation Gain
+        cumulativeElevationGain = ElevationCalculator.cumulativeElevationGain(forPoints: points)
+    }
+}
+
+extension Split: Hashable {
+    public static func == (lhs: Split, rhs: Split) -> Bool {
+        return lhs.index == rhs.index
+    }
+    
+    public var hashValue: Int {
+        return index.hashValue
     }
 }

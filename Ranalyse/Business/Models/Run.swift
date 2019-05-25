@@ -151,21 +151,10 @@ extension Run {
             currentSplit.addPoint(currentPoint)
             
             // Distance
-            let distance = DistanceCalculator.distanceBetweenPoints(point1: previousPoint, point2: currentPoint)
-            currentSplit.distance += distance
-            
-            // Time
-            let timeInterval = DurationCalculator.timeIntervalBetweenPoints(point1: previousPoint, point2: currentPoint)
-            currentSplit.time += timeInterval
+            currentSplit.distance += DistanceCalculator.distanceBetweenPoints(point1: previousPoint, point2: currentPoint)
             
             if currentSplit.distance >= 1_000.0 || currentPoint == points.last {
-                // Average Heart Rate
-                currentSplit.averageHeartRate = HeartRateCalculator
-                    .averageHeartRate(forPoints: currentSplit.points)
-                
-                // Cumulative Elevation Gain
-                currentSplit.cumulativeElevationGain = ElevationCalculator
-                    .cumulativeElevationGain(forPoints: currentSplit.points)
+                currentSplit.initFromPoints()
                 
                 splits.append(currentSplit)
                 currentSplit = nil
@@ -173,5 +162,71 @@ extension Run {
         }
         
         return splits
+    }
+}
+
+extension Run {
+    func allPossibleSplits(of distance: Distance) -> Set<Split> {
+        guard self.distance >= distance else { return [] }
+        
+        var uncompletedSplits = Set<Split>()
+        var completedSplits = Set<Split>()
+        var index = 0
+        
+        for point in allPoints {
+            let split = Split(index: index)
+            index += 1
+            uncompletedSplits.insert(split)
+            
+            for split in uncompletedSplits {
+                // Calculate Distance
+                if let previousPoint = split.points.last {
+                    split.distance += DistanceCalculator.distanceBetweenPoints(point1: previousPoint, point2: point)
+                }
+                
+                // Add point to split
+                split.addPoint(point)
+                
+                // Complete Split
+                if split.distance >= distance {
+                    split.initFromPoints()
+                    
+                    uncompletedSplits.remove(split)
+                    completedSplits.insert(split)
+                }
+            }
+        }
+        
+        return completedSplits
+    }
+    
+    var fastestOneKilometer: Duration? {
+        return allPossibleSplits(of: 1_000.0)
+            .map { $0.time }
+            .min()
+    }
+    
+    var fastestFiveKilometer: Duration? {
+        return allPossibleSplits(of: 5_000.0)
+            .map { $0.time }
+            .min()
+    }
+    
+    var fastestTenKilometer: Duration? {
+        return allPossibleSplits(of: 10_000.0)
+            .map { $0.time }
+            .min()
+    }
+    
+    var fastestHalfMarathon: Duration? {
+        return allPossibleSplits(of: 21_097.5)
+            .map { $0.time }
+            .min()
+    }
+    
+    var fastestMarathon: Duration? {
+        return allPossibleSplits(of: 42_195.0)
+            .map { $0.time }
+            .min()
     }
 }

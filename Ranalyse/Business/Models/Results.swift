@@ -19,7 +19,7 @@ struct Results {
     
     var fastestOneKilometer: Pace?
     var fastestFiveKilometers: Pace?
-    var fastestTenKilometer: Pace?
+    var fastestTenKilometers: Pace?
     var fastestHalfMarathon: Pace?
     var fastestMarathon: Pace?
     
@@ -72,7 +72,7 @@ extension Results {
     
     var formattedFastestOneKilometer: String {
         if let fastestOneKilometer = fastestOneKilometer {
-            return Formatter.pace(fastestOneKilometer)
+            return Formatter.duration(fastestOneKilometer)
         } else {
             return NSLocalizedString("N/A", comment: "")
         }
@@ -80,15 +80,15 @@ extension Results {
     
     var formattedFastestFiveKilometers: String {
         if let fastestFiveKilometers = fastestFiveKilometers {
-            return Formatter.pace(fastestFiveKilometers)
+            return Formatter.duration(fastestFiveKilometers)
         } else {
             return NSLocalizedString("N/A", comment: "")
         }
     }
     
     var formattedFastestTenKilometer: String {
-        if let fastestTenKilometer = fastestTenKilometer {
-            return Formatter.pace(fastestTenKilometer)
+        if let fastestTenKilometer = fastestTenKilometers {
+            return Formatter.duration(fastestTenKilometer)
         } else {
             return NSLocalizedString("N/A", comment: "")
         }
@@ -96,15 +96,15 @@ extension Results {
     
     var formattedFastestHalfMarathon: String {
         if let fastestHalfMarathon = fastestHalfMarathon {
-            return Formatter.pace(fastestHalfMarathon)
+            return Formatter.duration(fastestHalfMarathon)
         } else {
             return NSLocalizedString("N/A", comment: "")
         }
     }
     
     var formattedFastestMarathon: String {
-        if let fastestHalfMarathon = fastestHalfMarathon {
-            return Formatter.pace(fastestHalfMarathon)
+        if let fastestMarathon = fastestMarathon {
+            return Formatter.duration(fastestMarathon)
         } else {
             return NSLocalizedString("N/A", comment: "")
         }

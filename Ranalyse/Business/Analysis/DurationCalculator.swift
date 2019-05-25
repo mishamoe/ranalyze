@@ -27,10 +27,14 @@ class DurationCalculator {
     }
     
     func totalDuration(forTrackSegment trackSegment: GPXTrackSegment) -> Duration {
+        return DurationCalculator.totalDuration(forPoints: trackSegment.trackpoints)
+    }
+    
+    class func totalDuration(forPoints points: [GPXTrackPoint]) -> Duration {
         var totalDuration = 0.0
-        for i in 1..<trackSegment.trackpoints.count {
-            let point1 = trackSegment.trackpoints[i - 1]
-            let point2 = trackSegment.trackpoints[i]
+        for i in 1..<points.count {
+            let point1 = points[i - 1]
+            let point2 = points[i]
             
             let timeInterval = DurationCalculator.timeIntervalBetweenPoints(point1: point1, point2: point2)
             totalDuration += timeInterval

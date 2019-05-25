@@ -27,10 +27,14 @@ class DistanceCalculator {
     }
     
     func totalDistance(forTrackSegment trackSegment: GPXTrackSegment) -> Distance {
+        return DistanceCalculator.totalDistance(forPoints: trackSegment.trackpoints)
+    }
+    
+    class func totalDistance(forPoints points: [GPXTrackPoint]) -> Distance {
         var totalDistance = 0.0
-        for i in 1..<trackSegment.trackpoints.count {
-            let point1 = trackSegment.trackpoints[i - 1]
-            let point2 = trackSegment.trackpoints[i]
+        for i in 1..<points.count {
+            let point1 = points[i - 1]
+            let point2 = points[i]
             
             let distance = DistanceCalculator.distanceBetweenPoints(point1: point1, point2: point2)
             totalDistance += distance
