@@ -8,6 +8,51 @@
 
 import Foundation
 
-class DataService {
+struct DataService {
+    func loadRuns(completion: @escaping (Result<[Run], RanalyzeError>) -> Void) {
+        let gpxFileNames = [
+            "Nova_Poshta_Kyiv_Half_Marathon",
+            "May_9",
+            "May_12",
+            "NRC_Saturday_Run"
+        ]
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let runs = gpxFileNames
+                .compactMap { Run.run(fromGPXFile: $0) }
+                .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
+            
+            DispatchQueue.main.async {
+                completion(.success(runs))
+            }
+        }
+    }
     
+    func findFastestSplit(runs: [Run]) -> Result<Split, RanalyzeError> {
+        let allSplits = runs.flatMap { $0.splits }
+        
+        guard var fastestSplit = allSplits.first else {
+            return .failure(.errorWhenFindingFastestSplit)
+        }
+        
+        for split in allSplits {
+            if split.pace > fastestSplit.pace {
+                fastestSplit = split
+            }
+        }
+        
+        return .success(fastestSplit)
+    }
+    
+    func findMaxHeartRate(runs: [Run]) -> Result<Int, RanalyzeError> {
+        let maxHeartRate = runs
+            .compactMap { $0.maxHeartRate }
+            .max()
+        
+        if let maxHeartRate = maxHeartRate {
+            return .success(maxHeartRate)
+        } else {
+            return .failure(.errorWhenFindingMaxHeartRate)
+        }
+    }
 }

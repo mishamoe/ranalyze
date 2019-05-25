@@ -40,7 +40,7 @@ class RunsListViewController: UIViewController {
     
     @objc
     private func loadData() {
-        DataStore.shared.loadRuns { [weak self] result in
+        DataStore.shared.getRuns { [weak self] result in
             switch result {
             case .success(let runs):
                 self?.runs = runs

@@ -12,6 +12,7 @@
 		466D12772D56A8FE2BC86FAB /* Pods_Ranalyse_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DCE530D4B58911C6413E81 /* Pods_Ranalyse_WatchKit_App.framework */; };
 		90814E1222972559006206FD /* HeartRateZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E1122972559006206FD /* HeartRateZonesViewController.swift */; };
 		90814E1422972599006206FD /* HeartRateZoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E1322972599006206FD /* HeartRateZoneTableViewCell.swift */; };
+		90814E1622990BEE006206FD /* RanalyzeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E1522990BEE006206FD /* RanalyzeError.swift */; };
 		908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4422872EA90052AC8C /* AppDelegate.swift */; };
 		908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4622872EA90052AC8C /* RunsListViewController.swift */; };
 		908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A4822872EA90052AC8C /* Main.storyboard */; };
@@ -109,6 +110,7 @@
 		7D585F9FB33E0F103408F690 /* Pods-Ranalyse WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit App/Pods-Ranalyse WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		90814E1122972559006206FD /* HeartRateZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZonesViewController.swift; sourceTree = "<group>"; };
 		90814E1322972599006206FD /* HeartRateZoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZoneTableViewCell.swift; sourceTree = "<group>"; };
+		90814E1522990BEE006206FD /* RanalyzeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanalyzeError.swift; sourceTree = "<group>"; };
 		908B3A4122872EA90052AC8C /* Ranalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908B3A4422872EA90052AC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B3A4622872EA90052AC8C /* RunsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsListViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				908B3A98228760A80052AC8C /* Run.swift */,
 				90A125B32291EBEF00DD4938 /* Split.swift */,
 				90F3906722933DE500940069 /* Formatter.swift */,
+				90814E1522990BEE006206FD /* RanalyzeError.swift */,
 				908B3A83228738190052AC8C /* Analysis */,
 			);
 			path = Models;
@@ -659,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90814E1622990BEE006206FD /* RanalyzeError.swift in Sources */,
 				908B3AA8228890D80052AC8C /* GPXTrackPoint+extensions.swift in Sources */,
 				90814E1222972559006206FD /* HeartRateZonesViewController.swift in Sources */,
 				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,

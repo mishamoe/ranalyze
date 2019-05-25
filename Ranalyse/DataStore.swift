@@ -8,50 +8,54 @@
 
 import Foundation
 
-public class DataStore {
-    public static let shared = DataStore()
+class DataStore {
+    static let shared = DataStore()
     
-    public var runs: [Run]?
+    private let dataService = DataService()
     
-    public func loadRuns(_ completion: @escaping (Result<[Run], Error>) -> Void) {
-        let gpxFileNames = [
-            "Nova_Poshta_Kyiv_Half_Marathon",
-            "May_9",
-            "May_12",
-            "NRC_Saturday_Run"
-        ]
-        
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let runs = gpxFileNames
-                .compactMap { Run.run(fromGPXFile: $0) }
-                .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
-            
-            self?.runs = runs
-            
-            DispatchQueue.main.async {
-                completion(.success(runs))
+    private var runs: [Run]?
+    
+    func getRuns(_ completion: @escaping (Result<[Run], RanalyzeError>) -> Void) {
+        dataService.loadRuns { result in
+            if case .success(let runs) = result {
+                self.runs = runs
             }
+            
+            completion(result)
         }
     }
     
-    public func getMaxHeartRate(_ completion: @escaping (Result<Int?, Error>) -> Void) {
-        let maxHeartRate: ([Run]) -> Int? = { runs in
-            return runs
-                .compactMap { $0.maxHeartRate }
-                .max()
-        }
-        
-        if let runs = runs {
-            completion(.success(maxHeartRate(runs)))
-        } else {
-            loadRuns { result in
-                switch result {
-                case .success(let runs):
-                    completion(.success(maxHeartRate(runs)))
-                case .failure(let error):
+    func getMaxHeartRate(_ completion: @escaping (Result<Int, RanalyzeError>) -> Void) {
+        guard let runs = runs else {
+            getRuns { [weak self] result in
+                if case .success = result {
+                    self?.getMaxHeartRate(completion)
+                } else if case .failure(let error) = result {
                     completion(.failure(error))
                 }
             }
+            return
         }
+        
+        completion(
+            dataService.findMaxHeartRate(runs: runs)
+        )
+    }
+    
+    public func getFastestSplit(_ completion: @escaping (Result<Split, RanalyzeError>) -> Void) {
+        guard let runs = runs else {
+            getRuns { [weak self] result in
+                if case .success = result {
+                    self?.getFastestSplit(completion)
+                } else if case .failure(let error) = result {
+                    completion(.failure(error))
+                }
+            }
+            return
+        }
+        
+        completion(
+            dataService.findFastestSplit(runs: runs)
+        )
     }
 }

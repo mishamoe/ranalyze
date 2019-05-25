@@ -48,21 +48,20 @@ public struct Run {
     /// Relative Effort
     public let relativeEffort: Double
     
-    
     /// 1 kilometer splits
-    public lazy var splits: [Split] = {
-        return generateSplits()
-    }()
+    public var splits: [Split]
     
     public var heartRateAnalysis: HeartRateAnalysis?
     
     public init(gpx: GPXRoot) {
         self.gpx = gpx
-        self.allPoints = gpx.tracks.flatMap {
+        
+        allPoints = gpx.tracks.flatMap {
             $0.tracksegments.flatMap {
                 $0.trackpoints
             }
         }
+        splits = Run.initSplits(from: allPoints)
         
         if let maxHeartRate: Int = UserDefaults.get(key: .maxHeartRate) {
             heartRateAnalysis = HeartRateAnalysis(maxHeartRate: maxHeartRate)
@@ -97,9 +96,6 @@ public struct Run {
                 
                 heartRateAnalysis?.addHeartRate(heartRate, for: duration)
             }
-            
-            print(String(format:"\t+%.2f m | +%.0f s", distance, duration))
-            print(String(format:"%.2f m | %@\n", totalDistance, Formatter.duration(totalDuration)))
         }
         
         self.name = gpx.tracks.first?.name
@@ -126,13 +122,13 @@ extension Run {
         return Run(gpx: gpx)
     }
     
-    func generateSplits() -> [Split] {
+    static func initSplits(from points: [GPXTrackPoint]) -> [Split] {
         var splits = [Split]()
         var currentSplit: Split!
         
-        for i in 1..<allPoints.count {
-            let previousPoint = allPoints[i - 1]
-            let currentPoint = allPoints[i]
+        for i in 1..<points.count {
+            let previousPoint = points[i - 1]
+            let currentPoint = points[i]
             
             if currentSplit == nil {
                 currentSplit = Split(index: splits.endIndex + 1)
@@ -152,9 +148,7 @@ extension Run {
             let timeInterval = DurationCalculator.timeIntervalBetweenPoints(point1: previousPoint, point2: currentPoint)
             currentSplit.time += timeInterval
             
-            if currentSplit.distance >= 1_000.0 || currentPoint == allPoints.last {
-                print(String(format: "%d | %.2f m | %@ | %.2f km/h | %@", currentSplit.index, currentSplit.distance, Formatter.duration(currentSplit.time), currentSplit.speed, Formatter.pace(currentSplit.pace)))
-                
+            if currentSplit.distance >= 1_000.0 || currentPoint == points.last {
                 // Average Heart Rate
                 currentSplit.averageHeartRate = HeartRateCalculator
                     .averageHeartRate(forPoints: currentSplit.points)
