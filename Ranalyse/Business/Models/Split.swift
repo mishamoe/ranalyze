@@ -24,7 +24,7 @@ public struct Split {
     }
     
     /// Pace (in minutes per kilometer)
-    public var pace: Double {
+    public var pace: Pace {
         return 60.0 / speed
     }
     

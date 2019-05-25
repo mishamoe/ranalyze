@@ -45,6 +45,16 @@ public struct Run {
     /// Total Elevation Loss in meters
 //    let totalElevationLoss: Int
     
+    /// Speed (in kilometers per hour)
+    public var speed: Double {
+        return distance / duration * 3.6
+    }
+    
+    /// Pace (in minutes per kilometer)
+    public var pace: Pace {
+        return 60.0 / speed
+    }
+    
     /// Relative Effort
     public let relativeEffort: Double
     

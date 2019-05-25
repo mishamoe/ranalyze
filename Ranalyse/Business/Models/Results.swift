@@ -9,12 +9,13 @@
 import Foundation
 
 struct Results {
-    var averagePace: Pace?
     var averageHeartRate: BPM?
     var maxHeartRate: BPM?
     
     var farthestRun: Distance?
     var longestRun: Duration?
+    
+    var averagePace: Pace?
     
     var fastestOneKilometer: Pace?
     var fastestFiveKilometers: Pace?
@@ -29,14 +30,6 @@ struct Results {
 
 // MARK: - Formatted strings
 extension Results {
-    var formattedAveragePace: String {
-        if let averagePace = averagePace {
-            return Formatter.pace(averagePace)
-        } else {
-            return NSLocalizedString("N/A", comment: "")
-        }
-    }
-    
     var formattedAverageHeartRate: String {
         if let averageHeartRate = averageHeartRate {
             return Formatter.heartRate(averageHeartRate)
@@ -64,6 +57,14 @@ extension Results {
     var formattedLongestRun: String {
         if let longestRun = longestRun {
             return Formatter.duration(longestRun)
+        } else {
+            return NSLocalizedString("N/A", comment: "")
+        }
+    }
+    
+    var formattedAveragePace: String {
+        if let averagePace = averagePace {
+            return Formatter.pace(averagePace)
         } else {
             return NSLocalizedString("N/A", comment: "")
         }

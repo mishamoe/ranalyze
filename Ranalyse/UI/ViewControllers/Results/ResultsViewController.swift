@@ -10,7 +10,6 @@ import UIKit
 
 enum ResultsRow {
     // First section
-    case averagePace
     case averageHeartRate
     case maxHeartRate
 
@@ -19,6 +18,9 @@ enum ResultsRow {
     case longestRun     // Самая длительная
     
     // Third Section
+    case averagePace
+    
+    // Fourth Section
     case fastestOneKilometer
     case fastestFiveKilometers
     case fastestTenKilometer
@@ -41,8 +43,9 @@ class ResultsViewController: UIViewController {
     // MARK: - Properties
     
     let sections: [[ResultsRow]] = [
-        [.averagePace, .averageHeartRate, .maxHeartRate],
+        [.averageHeartRate, .maxHeartRate],
         [.farthestRun, .longestRun],
+        [.averagePace],
         [.fastestOneKilometer, .fastestFiveKilometers, .fastestTenKilometer, .fastestHalfMarathon, .fastestMarathon]
     ]
     
@@ -64,19 +67,20 @@ class ResultsViewController: UIViewController {
 
     @objc
     private func loadData() {
-        let group = DispatchGroup()
+        refreshControl.beginRefreshing()
         
-        group.enter()
-        DataStore.shared.getMaxHeartRate { [weak self] result in
-            if case .success(let maxHeartRate) = result {
-                self?.results.maxHeartRate = maxHeartRate
+        DataStore.shared.getRuns { [weak self] result in
+            switch result {
+            case .success(let runs):
+                let analyzer = ResultsAnalyzer(runs: runs)
+                analyzer.getResults() { [weak self] results in
+                    self?.results = results
+                    self?.tableView.reloadData()
+                    self?.refreshControl.endRefreshing()
+                }
+            case .failure(let error):
+                self?.showError(error)
             }
-            group.leave()
-        }
-        
-        group.notify(queue: .main) { [weak self] in
-            self?.tableView.reloadData()
-            self?.refreshControl.endRefreshing()
         }
     }
     
@@ -89,6 +93,21 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return NSLocalizedString("Heart Rate", comment: "")
+        case 1:
+            return NSLocalizedString("Best Results", comment: "")
+        case 2:
+            return NSLocalizedString("Average Pace", comment: "")
+        case 3:
+            return NSLocalizedString("Achievements", comment: "")
+        default:
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,16 +124,17 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
 extension ResultsRow {
     var title: String {
         switch self {
-        case .averagePace: return NSLocalizedString("Average Pace", comment: "")
         case .averageHeartRate: return NSLocalizedString("Average Heart Rate", comment: "")
         case .maxHeartRate: return NSLocalizedString("Max Heart Rate", comment: "")
             
         case .farthestRun: return NSLocalizedString("Farthest Run", comment: "")
         case .longestRun: return NSLocalizedString("Longest Run", comment: "")
             
-        case .fastestOneKilometer: return NSLocalizedString("Fastest 1KM", comment: "")
-        case .fastestFiveKilometers: return NSLocalizedString("Fastest 5KM", comment: "")
-        case .fastestTenKilometer: return NSLocalizedString("Fastest 10KM", comment: "")
+        case .averagePace: return NSLocalizedString("Average Pace", comment: "")
+            
+        case .fastestOneKilometer: return NSLocalizedString("Fastest 1 km", comment: "")
+        case .fastestFiveKilometers: return NSLocalizedString("Fastest 5 km", comment: "")
+        case .fastestTenKilometer: return NSLocalizedString("Fastest 10 km", comment: "")
         case .fastestHalfMarathon: return NSLocalizedString("Fastest Half Marathon", comment: "")
         case .fastestMarathon: return NSLocalizedString("Fastest Marathon", comment: "")
         }
@@ -122,12 +142,13 @@ extension ResultsRow {
     
     func formattedValue(from results: Results) -> String {
         switch self {
-        case .averagePace: return results.formattedAveragePace
         case .averageHeartRate: return results.formattedAverageHeartRate
         case .maxHeartRate: return results.formattedMaxHeartRate
             
         case .farthestRun: return results.formattedFarthestRun
         case .longestRun: return results.formattedLongestRun
+            
+        case .averagePace: return results.formattedAveragePace
             
         case .fastestOneKilometer: return results.formattedFastestOneKilometer
         case .fastestFiveKilometers: return results.formattedFastestFiveKilometers

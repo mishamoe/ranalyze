@@ -11,6 +11,7 @@ import UIKit
 enum RunDetails {
     case distance
     case duration
+    case pace
     case minHeartRate
     case maxHeartRate
     case averageHeartRate
@@ -20,6 +21,7 @@ enum RunDetails {
         switch self {
         case .distance: return NSLocalizedString("Distance", comment: "")
         case .duration: return NSLocalizedString("Duration", comment: "")
+        case .pace: return NSLocalizedString("Pace", comment: "")
         case .minHeartRate: return NSLocalizedString("Minimal Heart Rate", comment: "")
         case .maxHeartRate: return NSLocalizedString("Maximal Heart Rate", comment: "")
         case .averageHeartRate: return NSLocalizedString("Average Heart Rate", comment: "")
@@ -34,6 +36,7 @@ class RunDetailsTableViewController: UITableViewController {
     
     private let details: [RunDetails] = [.distance,
                                          .duration,
+                                         .pace,
                                          .minHeartRate,
                                          .maxHeartRate,
                                          .averageHeartRate,
@@ -89,6 +92,8 @@ class RunDetailsTableViewController: UITableViewController {
                 cell.detailTextLabel?.text = Formatter.distance(valueInMeters: run.distance)
             case .duration:
                 cell.detailTextLabel?.text = Formatter.duration(run.duration)
+            case.pace:
+                cell.detailTextLabel?.text = Formatter.pace(run.pace)
             case .minHeartRate:
                 if let minHeartRate = run.minHeartRate {
                     cell.detailTextLabel?.text = Formatter.heartRate(minHeartRate)
