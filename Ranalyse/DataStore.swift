@@ -25,7 +25,7 @@ class DataStore {
         }
     }
     
-    func getMaxHeartRate(_ completion: @escaping (Result<Int, RanalyzeError>) -> Void) {
+    func getMaxHeartRate(_ completion: @escaping (Result<BPM, RanalyzeError>) -> Void) {
         guard let runs = runs else {
             getRuns { [weak self] result in
                 if case .success = result {

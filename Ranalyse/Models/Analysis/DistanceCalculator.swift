@@ -10,7 +10,7 @@ import Foundation
 import CoreGPX
 
 class DistanceCalculator {
-    func totalDistance(forGPX gpx: GPXRoot) -> Double {
+    func totalDistance(forGPX gpx: GPXRoot) -> Distance {
         var totalDistance = 0.0
         for track in gpx.tracks {
             totalDistance += self.totalDistance(forTrack: track)
@@ -18,7 +18,7 @@ class DistanceCalculator {
         return totalDistance
     }
     
-    func totalDistance(forTrack track: GPXTrack) -> Double {
+    func totalDistance(forTrack track: GPXTrack) -> Distance {
         var totalDistance = 0.0
         for trackSegment in track.tracksegments {
             totalDistance += self.totalDistance(forTrackSegment: trackSegment)
@@ -26,7 +26,7 @@ class DistanceCalculator {
         return totalDistance
     }
     
-    func totalDistance(forTrackSegment trackSegment: GPXTrackSegment) -> Double {
+    func totalDistance(forTrackSegment trackSegment: GPXTrackSegment) -> Distance {
         var totalDistance = 0.0
         for i in 1..<trackSegment.trackpoints.count {
             let point1 = trackSegment.trackpoints[i - 1]
@@ -40,7 +40,7 @@ class DistanceCalculator {
     }
     
     /// Calculate Geodesic Distance with Hubeny Formula
-    class func distanceBetweenPoints(point1: GPXTrackPoint, point2: GPXTrackPoint) -> Double {
+    class func distanceBetweenPoints(point1: GPXTrackPoint, point2: GPXTrackPoint) -> Distance {
         let lat1 = point1.latitude ?? 0.0
         let lon1 = point1.longitude ?? 0.0
         let lat2 = point2.latitude ?? 0.0

@@ -44,7 +44,7 @@ struct DataService {
         return .success(fastestSplit)
     }
     
-    func findMaxHeartRate(runs: [Run]) -> Result<Int, RanalyzeError> {
+    func findMaxHeartRate(runs: [Run]) -> Result<BPM, RanalyzeError> {
         let maxHeartRate = runs
             .compactMap { $0.maxHeartRate }
             .max()

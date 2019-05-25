@@ -10,23 +10,23 @@ import Foundation
 import CoreGPX
 
 class ElevationCalculator {
-    func cumulativeElevationGain(forGPX gpx: GPXRoot) -> Double {
+    func cumulativeElevationGain(forGPX gpx: GPXRoot) -> Elevation {
         return gpx.tracks
             .map { cumulativeElevationGain(forTrack: $0) }
             .reduce(0.0, +)
     }
     
-    func cumulativeElevationGain(forTrack track: GPXTrack) -> Double {
+    func cumulativeElevationGain(forTrack track: GPXTrack) -> Elevation {
         return track.tracksegments
             .map { cumulativeElevationGain(forTrackSegment: $0) }
             .reduce(0.0, +)
     }
     
-    func cumulativeElevationGain(forTrackSegment trackSegment: GPXTrackSegment) -> Double {
+    func cumulativeElevationGain(forTrackSegment trackSegment: GPXTrackSegment) -> Elevation {
         return ElevationCalculator.cumulativeElevationGain(forPoints: trackSegment.trackpoints)
     }
     
-    class func cumulativeElevationGain(forPoints points: [GPXTrackPoint]) -> Double {
+    class func cumulativeElevationGain(forPoints points: [GPXTrackPoint]) -> Elevation {
         var cumulativeElevationGain = 0.0
         for i in 1..<points.count {
             let previousPoint = points[i - 1]

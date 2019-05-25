@@ -58,11 +58,11 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="64.955357142857139"/>
         </scene>
-        <!--Predictions-->
+        <!--Results-->
         <scene sceneID="wrk-Rx-hiC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="neL-cF-kvN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Predictions" image="predictions-tab-bar-icon" id="PZa-xp-deR"/>
+                    <tabBarItem key="tabBarItem" title="Results" image="predictions-tab-bar-icon" id="PZa-xp-deR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fdi-lj-jKt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="1157" y="65"/>
         </scene>
-        <!--Predictions-->
+        <!--Results-->
         <scene sceneID="nEh-J0-bUn">
             <objects>
-                <viewControllerPlaceholder storyboardName="Predictions" id="qMI-is-ka3" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Results" id="qMI-is-ka3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="I54-LD-xaC"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSg-Ea-uJf" userLabel="First Responder" sceneMemberID="firstResponder"/>

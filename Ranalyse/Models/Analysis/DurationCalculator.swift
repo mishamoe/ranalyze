@@ -10,7 +10,7 @@ import Foundation
 import CoreGPX
 
 class DurationCalculator {
-    func totalDuration(forGPX gpx: GPXRoot) -> Double {
+    func totalDuration(forGPX gpx: GPXRoot) -> Duration {
         var totalDuration = 0.0
         for track in gpx.tracks {
             totalDuration += self.totalDuration(forTrack: track)
@@ -18,7 +18,7 @@ class DurationCalculator {
         return totalDuration
     }
     
-    func totalDuration(forTrack track: GPXTrack) -> Double {
+    func totalDuration(forTrack track: GPXTrack) -> Duration {
         var totalDuration = 0.0
         for trackSegment in track.tracksegments {
             totalDuration += self.totalDuration(forTrackSegment: trackSegment)
@@ -26,7 +26,7 @@ class DurationCalculator {
         return totalDuration
     }
     
-    func totalDuration(forTrackSegment trackSegment: GPXTrackSegment) -> Double {
+    func totalDuration(forTrackSegment trackSegment: GPXTrackSegment) -> Duration {
         var totalDuration = 0.0
         for i in 1..<trackSegment.trackpoints.count {
             let point1 = trackSegment.trackpoints[i - 1]

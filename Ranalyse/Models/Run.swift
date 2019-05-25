@@ -25,22 +25,22 @@ public struct Run {
     public let date: Date?
     
     /// Total distance in meters
-    public let distance: Double
+    public let distance: Distance
     
     /// Total duration in seconds
-    public let duration: TimeInterval
+    public let duration: Duration
     
     /// Cumulative Elevation Gain (in meters)
-    public let cumulativeElevationGain: Double
+    public let cumulativeElevationGain: Elevation
     
     /// Minimal heart rate in BPM (beats per minute)
-    public let minHeartRate: Int?
+    public let minHeartRate: BPM?
     
     /// Maximal heart rate in BPM (beats per minute)
-    public let maxHeartRate: Int?
+    public let maxHeartRate: BPM?
     
     /// Average heart rate in BPM (beats per minute)
-    public let averageHeartRate: Int?
+    public let averageHeartRate: BPM?
     
     /// Total Elevation Loss in meters
 //    let totalElevationLoss: Int
@@ -70,8 +70,8 @@ public struct Run {
         var totalDistance = 0.0
         var totalDuration = 0.0
         var cumulativeElevationGain = 0.0
-        var minHeartRate = Int.max
-        var maxHeartRate = Int.min
+        var minHeartRate = BPM.max
+        var maxHeartRate = BPM.min
         
         for i in 1..<allPoints.count {
             let previousPoint = allPoints[i - 1]
@@ -105,8 +105,8 @@ public struct Run {
         self.duration = totalDuration
         self.cumulativeElevationGain = cumulativeElevationGain
         
-        self.minHeartRate = minHeartRate == Int.max ? nil : minHeartRate
-        self.maxHeartRate = maxHeartRate == Int.min ? nil : maxHeartRate
+        self.minHeartRate = minHeartRate == BPM.max ? nil : minHeartRate
+        self.maxHeartRate = maxHeartRate == BPM.min ? nil : maxHeartRate
         self.averageHeartRate = HeartRateCalculator.averageHeartRate(forPoints: allPoints)
         
         // TODO: Imlpement calculation of relative effort
