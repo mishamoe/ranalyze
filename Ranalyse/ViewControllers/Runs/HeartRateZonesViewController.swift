@@ -54,7 +54,15 @@ extension HeartRateZonesViewController: UITableViewDataSource, UITableViewDelega
         
         cell.zoneIndexLabel.text = "Z\(zone.rawValue)"
         cell.zoneNameLabel.text = zone.name
-        cell.zoneRangeLabel.text = Formatter.range(zoneRange)
+        
+        if zone == .endurance {
+            cell.zoneRangeLabel.text = Formatter.lessThanUpperBound(zoneRange)
+        } else if zone == .anaerobic {
+            cell.zoneRangeLabel.text = Formatter.moreThanLowerBound(zoneRange)
+        } else {
+            cell.zoneRangeLabel.text = Formatter.range(zoneRange)
+        }
+        
         cell.timeIntervalLabel.text = timeInterval > 0 ? Formatter.duration(timeInterval) : "-"
         cell.percentageLabel.text = String(format: "%.1f%%", percentage)
         

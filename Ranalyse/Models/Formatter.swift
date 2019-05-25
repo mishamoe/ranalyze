@@ -50,4 +50,12 @@ struct Formatter {
     static func range(_ value: ClosedRange<Int>) -> String {
         return "\(value.lowerBound) - \(value.upperBound)"
     }
+    
+    static func lessThanUpperBound(_ value: ClosedRange<Int>) -> String {
+        return "< \(value.upperBound)"
+    }
+    
+    static func moreThanLowerBound(_ value: ClosedRange<Int>) -> String {
+        return "> \(value.lowerBound)"
+    }
 }
