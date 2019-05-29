@@ -200,6 +200,47 @@ extension Run {
         return completedSplits
     }
     
+    func allPossibleSplits(of distance: Distance, completion: @escaping (Set<Split>) -> Void) {
+        guard self.distance >= distance else {
+            completion([])
+            return
+        }
+        
+        DispatchQueue.global(qos: .default).async {
+            var uncompletedSplits = Set<Split>()
+            var completedSplits = Set<Split>()
+            var index = 0
+            
+            for point in self.allPoints {
+                let split = Split(index: index)
+                index += 1
+                uncompletedSplits.insert(split)
+                
+                for split in uncompletedSplits {
+                    // Calculate Distance
+                    if let previousPoint = split.points.last {
+                        split.distance += DistanceCalculator.distanceBetweenPoints(point1: previousPoint, point2: point)
+                    }
+                    
+                    // Add point to split
+                    split.addPoint(point)
+                    
+                    // Complete Split
+                    if split.distance >= distance {
+                        split.initFromPoints()
+                        
+                        uncompletedSplits.remove(split)
+                        completedSplits.insert(split)
+                    }
+                }
+            }
+            
+            DispatchQueue.main.async {
+                completion(completedSplits)
+            }
+        }
+    }
+    
     var fastestOneKilometer: Duration? {
         return allPossibleSplits(of: 1_000.0)
             .map { $0.time }
@@ -228,5 +269,24 @@ extension Run {
         return allPossibleSplits(of: 42_195.0)
             .map { $0.time }
             .min()
+    }
+}
+
+extension Run {
+    func vdot(_ completion: @escaping (VDOT?) -> Void) {
+        var vdot: VDOT? = nil
+        
+        guard let nearestDistance = KnownDistance.nearestDistance(to: distance) else {
+            completion(vdot)
+            return
+        }
+        
+        allPossibleSplits(of: nearestDistance.rawValue) { splits in
+            if let fastestSplitDuration = splits.map({ $0.time }).min() {
+                vdot = VDOT(distance: nearestDistance, duration: fastestSplitDuration)
+            }
+            
+            completion(vdot)
+        }
     }
 }

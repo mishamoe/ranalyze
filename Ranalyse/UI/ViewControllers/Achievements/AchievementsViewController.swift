@@ -61,7 +61,7 @@ class AchievementsViewController: UIViewController {
     }
     
     private func setupView() {
-        title = NSLocalizedString("Results", comment: "")
+        title = NSLocalizedString("Achievements", comment: "")
         tableView.refreshControl = refreshControl
     }
 

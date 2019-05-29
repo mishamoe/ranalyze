@@ -10,6 +10,13 @@ import Foundation
 
 struct Formatter {
     
+    static func date(_ value: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, HH:mm"
+        
+        return formatter.string(from: value)
+    }
+    
     static func distance(valueInMeters: Distance) -> String {
         return String(format: "%.2f km", valueInMeters / 1000)
     }

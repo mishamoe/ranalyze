@@ -81,10 +81,7 @@ extension RunsListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = run.name
         
         if let date = run.date {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM d, HH:mm"
-            
-            cell.detailTextLabel?.text = formatter.string(from: date)
+            cell.detailTextLabel?.text = Formatter.date(date)
         }
         
         

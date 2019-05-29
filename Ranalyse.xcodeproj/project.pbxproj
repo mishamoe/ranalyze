@@ -20,6 +20,10 @@
 		90814E24229EE161006206FD /* VDOT.csv in Resources */ = {isa = PBXBuildFile; fileRef = 90814E23229EE161006206FD /* VDOT.csv */; };
 		90814E27229F1A18006206FD /* Progress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90814E26229F1A18006206FD /* Progress.storyboard */; };
 		90814E29229F1C63006206FD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E28229F1C63006206FD /* ProgressViewController.swift */; };
+		90814E2C229F1F13006206FD /* VDOT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2B229F1F13006206FD /* VDOT.swift */; };
+		90814E2E229F1F2C006206FD /* VDOTDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2D229F1F2C006206FD /* VDOTDatabase.swift */; };
+		90814E30229F1F5F006206FD /* Duration+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2F229F1F5F006206FD /* Duration+extensions.swift */; };
+		90814E32229F1F82006206FD /* KnownDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E31229F1F82006206FD /* KnownDistance.swift */; };
 		908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4422872EA90052AC8C /* AppDelegate.swift */; };
 		908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4622872EA90052AC8C /* RunsListViewController.swift */; };
 		908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A4822872EA90052AC8C /* Main.storyboard */; };
@@ -125,6 +129,10 @@
 		90814E23229EE161006206FD /* VDOT.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VDOT.csv; sourceTree = "<group>"; };
 		90814E26229F1A18006206FD /* Progress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Progress.storyboard; sourceTree = "<group>"; };
 		90814E28229F1C63006206FD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		90814E2B229F1F13006206FD /* VDOT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDOT.swift; sourceTree = "<group>"; };
+		90814E2D229F1F2C006206FD /* VDOTDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDOTDatabase.swift; sourceTree = "<group>"; };
+		90814E2F229F1F5F006206FD /* Duration+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Duration+extensions.swift"; sourceTree = "<group>"; };
+		90814E31229F1F82006206FD /* KnownDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDistance.swift; sourceTree = "<group>"; };
 		908B3A4122872EA90052AC8C /* Ranalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908B3A4422872EA90052AC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B3A4622872EA90052AC8C /* RunsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsListViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				90814E23229EE161006206FD /* VDOT.csv */,
+				90814E2D229F1F2C006206FD /* VDOTDatabase.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -388,6 +397,7 @@
 				908B3AA7228890D80052AC8C /* GPXTrackPoint+extensions.swift */,
 				90F3906D2294814200940069 /* UIViewController+showError.swift */,
 				90F3907B229490CF00940069 /* UserDefaults+keys.swift */,
+				90814E2F229F1F5F006206FD /* Duration+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -401,6 +411,8 @@
 				90A125B32291EBEF00DD4938 /* Split.swift */,
 				90814E1A2299171C006206FD /* Results.swift */,
 				90814E1522990BEE006206FD /* RanalyzeError.swift */,
+				90814E31229F1F82006206FD /* KnownDistance.swift */,
+				90814E2B229F1F13006206FD /* VDOT.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -734,10 +746,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				90814E1622990BEE006206FD /* RanalyzeError.swift in Sources */,
+				90814E2E229F1F2C006206FD /* VDOTDatabase.swift in Sources */,
 				908B3AA8228890D80052AC8C /* GPXTrackPoint+extensions.swift in Sources */,
 				90814E1222972559006206FD /* HeartRateZonesViewController.swift in Sources */,
 				90814E29229F1C63006206FD /* ProgressViewController.swift in Sources */,
 				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,
+				90814E32229F1F82006206FD /* KnownDistance.swift in Sources */,
 				90F3907A22948E6C00940069 /* SettingsTableViewCell.swift in Sources */,
 				90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */,
 				908B3A99228760A80052AC8C /* Run.swift in Sources */,
@@ -750,6 +764,7 @@
 				908B3AA1228767170052AC8C /* HeartRateCalculator.swift in Sources */,
 				90F3906C22947FF000940069 /* DataService.swift in Sources */,
 				908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */,
+				90814E30229F1F5F006206FD /* Duration+extensions.swift in Sources */,
 				90F3906822933DE500940069 /* Formatter.swift in Sources */,
 				90E890652295D1FA000ECBE3 /* HeartRateAnalysis.swift in Sources */,
 				90F39070229484EC00940069 /* SettingsViewController.swift in Sources */,
@@ -761,6 +776,7 @@
 				90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */,
 				90814E1822991379006206FD /* AchievementsViewController.swift in Sources */,
 				90814E1B2299171C006206FD /* Results.swift in Sources */,
+				90814E2C229F1F13006206FD /* VDOT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
