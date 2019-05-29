@@ -17,6 +17,7 @@
 		90814E1B2299171C006206FD /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E1A2299171C006206FD /* Results.swift */; };
 		90814E1D229917CD006206FD /* MeasureUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E1C229917CD006206FD /* MeasureUnits.swift */; };
 		90814E222299298B006206FD /* ResultsAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E212299298B006206FD /* ResultsAnalyzer.swift */; };
+		90814E24229EE161006206FD /* VDOT.csv in Resources */ = {isa = PBXBuildFile; fileRef = 90814E23229EE161006206FD /* VDOT.csv */; };
 		908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4422872EA90052AC8C /* AppDelegate.swift */; };
 		908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4622872EA90052AC8C /* RunsListViewController.swift */; };
 		908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A4822872EA90052AC8C /* Main.storyboard */; };
@@ -119,6 +120,7 @@
 		90814E1A2299171C006206FD /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		90814E1C229917CD006206FD /* MeasureUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureUnits.swift; sourceTree = "<group>"; };
 		90814E212299298B006206FD /* ResultsAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsAnalyzer.swift; sourceTree = "<group>"; };
+		90814E23229EE161006206FD /* VDOT.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VDOT.csv; sourceTree = "<group>"; };
 		908B3A4122872EA90052AC8C /* Ranalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908B3A4422872EA90052AC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B3A4622872EA90052AC8C /* RunsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsListViewController.swift; sourceTree = "<group>"; };
@@ -258,10 +260,19 @@
 		90814E2022992958006206FD /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				90814E25229EE167006206FD /* Data */,
 				908B3A9D228764F30052AC8C /* Models */,
 				908B3A83228738190052AC8C /* Analysis */,
 			);
 			path = Business;
+			sourceTree = "<group>";
+		};
+		90814E25229EE167006206FD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				90814E23229EE161006206FD /* VDOT.csv */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		908B3A3822872EA90052AC8C = {
@@ -578,6 +589,7 @@
 				908B3A7F228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx in Resources */,
 				90F39074229489C000940069 /* Settings.storyboard in Resources */,
 				90A125B22291C43900DD4938 /* NRC_Saturday_Run.gpx in Resources */,
+				90814E24229EE161006206FD /* VDOT.csv in Resources */,
 				908B3AAB2288B42A0052AC8C /* May_12.gpx in Resources */,
 				908B3A4C22872EAC0052AC8C /* Assets.xcassets in Resources */,
 				908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */,
