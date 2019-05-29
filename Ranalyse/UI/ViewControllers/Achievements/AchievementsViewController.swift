@@ -28,7 +28,7 @@ enum ResultsRow {
     case fastestMarathon
 }
 
-class ResultsViewController: UIViewController {
+class AchievementsViewController: UIViewController {
 
     // MARK: - Outlets
     
@@ -86,7 +86,7 @@ class ResultsViewController: UIViewController {
     
 }
 
-extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
+extension AchievementsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
