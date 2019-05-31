@@ -72,7 +72,7 @@ extension Split: Hashable {
         return lhs.index == rhs.index
     }
     
-    public var hashValue: Int {
-        return index.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(index)
     }
 }

@@ -24,6 +24,11 @@
 		90814E2E229F1F2C006206FD /* VDOTDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2D229F1F2C006206FD /* VDOTDatabase.swift */; };
 		90814E30229F1F5F006206FD /* Duration+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2F229F1F5F006206FD /* Duration+extensions.swift */; };
 		90814E32229F1F82006206FD /* KnownDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E31229F1F82006206FD /* KnownDistance.swift */; };
+		90814E3522A049DA006206FD /* ProgressChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E3422A049DA006206FD /* ProgressChartViewController.swift */; };
+		90814E3722A170FF006206FD /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E3622A170FF006206FD /* Week.swift */; };
+		90814E3922A17BC0006206FD /* WeekProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E3822A17BC0006206FD /* WeekProgress.swift */; };
+		90814E3B22A18087006206FD /* May_20.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 90814E3A22A18087006206FD /* May_20.gpx */; };
+		90814E3D22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 90814E3C22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx */; };
 		908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4422872EA90052AC8C /* AppDelegate.swift */; };
 		908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4622872EA90052AC8C /* RunsListViewController.swift */; };
 		908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A4822872EA90052AC8C /* Main.storyboard */; };
@@ -133,6 +138,11 @@
 		90814E2D229F1F2C006206FD /* VDOTDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDOTDatabase.swift; sourceTree = "<group>"; };
 		90814E2F229F1F5F006206FD /* Duration+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Duration+extensions.swift"; sourceTree = "<group>"; };
 		90814E31229F1F82006206FD /* KnownDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDistance.swift; sourceTree = "<group>"; };
+		90814E3422A049DA006206FD /* ProgressChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartViewController.swift; sourceTree = "<group>"; };
+		90814E3622A170FF006206FD /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		90814E3822A17BC0006206FD /* WeekProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekProgress.swift; sourceTree = "<group>"; };
+		90814E3A22A18087006206FD /* May_20.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = May_20.gpx; sourceTree = "<group>"; };
+		90814E3C22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Interpipe_Dnipro_Half_Marathon.gpx; sourceTree = "<group>"; };
 		908B3A4122872EA90052AC8C /* Ranalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908B3A4422872EA90052AC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B3A4622872EA90052AC8C /* RunsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsListViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				90814E28229F1C63006206FD /* ProgressViewController.swift */,
+				90814E3422A049DA006206FD /* ProgressChartViewController.swift */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
@@ -365,6 +376,8 @@
 				908B3A7C228735210052AC8C /* May_9.gpx */,
 				908B3AAA2288B42A0052AC8C /* May_12.gpx */,
 				90A125B12291C43900DD4938 /* NRC_Saturday_Run.gpx */,
+				90814E3A22A18087006206FD /* May_20.gpx */,
+				90814E3C22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx */,
 			);
 			path = "GPX Examples";
 			sourceTree = "<group>";
@@ -413,6 +426,8 @@
 				90814E1522990BEE006206FD /* RanalyzeError.swift */,
 				90814E31229F1F82006206FD /* KnownDistance.swift */,
 				90814E2B229F1F13006206FD /* VDOT.swift */,
+				90814E3622A170FF006206FD /* Week.swift */,
+				90814E3822A17BC0006206FD /* WeekProgress.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -613,10 +628,12 @@
 				908B3A4F22872EAC0052AC8C /* LaunchScreen.storyboard in Resources */,
 				90814E27229F1A18006206FD /* Progress.storyboard in Resources */,
 				90F3907822948AF500940069 /* Achievements.storyboard in Resources */,
+				90814E3D22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx in Resources */,
 				908B3A7F228735210052AC8C /* Nova_Poshta_Kyiv_Half_Marathon.gpx in Resources */,
 				90F39074229489C000940069 /* Settings.storyboard in Resources */,
 				90A125B22291C43900DD4938 /* NRC_Saturday_Run.gpx in Resources */,
 				90814E24229EE161006206FD /* VDOT.csv in Resources */,
+				90814E3B22A18087006206FD /* May_20.gpx in Resources */,
 				908B3AAB2288B42A0052AC8C /* May_12.gpx in Resources */,
 				908B3A4C22872EAC0052AC8C /* Assets.xcassets in Resources */,
 				908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */,
@@ -726,12 +743,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Ranalyse/Pods-Ranalyse-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CoreGPX/CoreGPX.framework",
+				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreGPX.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -753,10 +772,12 @@
 				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,
 				90814E32229F1F82006206FD /* KnownDistance.swift in Sources */,
 				90F3907A22948E6C00940069 /* SettingsTableViewCell.swift in Sources */,
+				90814E3522A049DA006206FD /* ProgressChartViewController.swift in Sources */,
 				90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */,
 				908B3A99228760A80052AC8C /* Run.swift in Sources */,
 				908B3A9722875E420052AC8C /* DurationCalculator.swift in Sources */,
 				908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */,
+				90814E3722A170FF006206FD /* Week.swift in Sources */,
 				90F3907C229490CF00940069 /* UserDefaults+keys.swift in Sources */,
 				90814E222299298B006206FD /* ResultsAnalyzer.swift in Sources */,
 				908B3A82228738110052AC8C /* ElevationCalculator.swift in Sources */,
@@ -764,6 +785,7 @@
 				908B3AA1228767170052AC8C /* HeartRateCalculator.swift in Sources */,
 				90F3906C22947FF000940069 /* DataService.swift in Sources */,
 				908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */,
+				90814E3922A17BC0006206FD /* WeekProgress.swift in Sources */,
 				90814E30229F1F5F006206FD /* Duration+extensions.swift in Sources */,
 				90F3906822933DE500940069 /* Formatter.swift in Sources */,
 				90E890652295D1FA000ECBE3 /* HeartRateAnalysis.swift in Sources */,

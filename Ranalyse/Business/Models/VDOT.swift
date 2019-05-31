@@ -12,6 +12,8 @@ struct VDOT {
     let value: Double
     let results: [KnownDistance: Duration]
     
+    var date: Date?
+    
     var formattedValue: String {
         return String(format: "%.1f", value)
     }
@@ -27,5 +29,15 @@ struct VDOT {
         } else {
             return nil
         }
+    }
+}
+
+extension VDOT: Comparable {
+    static func == (lhs: VDOT, rhs: VDOT) -> Bool {
+        return lhs.value == rhs.value
+    }
+    
+    static func < (lhs: VDOT, rhs: VDOT) -> Bool {
+        return lhs.value < rhs.value
     }
 }

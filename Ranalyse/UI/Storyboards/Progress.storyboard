@@ -17,13 +17,75 @@
                     <view key="view" contentMode="scaleToFill" id="Jrq-nM-PDT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 of 3 runs analyzed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPK-Bc-rMN">
+                                <rect key="frame" x="0.0" y="469" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6O-cy-1rh">
+                                <rect key="frame" x="0.0" y="490" width="414" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bii-kE-nJC">
+                                <rect key="frame" x="20" y="447" width="374" height="2"/>
+                            </progressView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sww-0C-pzp" firstAttribute="trailing" secondItem="EPK-Bc-rMN" secondAttribute="trailing" id="2FG-lt-hqv"/>
+                            <constraint firstItem="bii-kE-nJC" firstAttribute="centerX" secondItem="Jrq-nM-PDT" secondAttribute="centerX" id="3jZ-hZ-V5S"/>
+                            <constraint firstItem="Y6O-cy-1rh" firstAttribute="trailing" secondItem="EPK-Bc-rMN" secondAttribute="trailing" id="6Gk-DM-zVQ"/>
+                            <constraint firstItem="Y6O-cy-1rh" firstAttribute="leading" secondItem="EPK-Bc-rMN" secondAttribute="leading" id="6mg-kL-hNY"/>
+                            <constraint firstItem="Y6O-cy-1rh" firstAttribute="top" secondItem="EPK-Bc-rMN" secondAttribute="bottom" id="9es-2Q-XwP"/>
+                            <constraint firstItem="bii-kE-nJC" firstAttribute="centerY" secondItem="Jrq-nM-PDT" secondAttribute="centerY" id="Hwm-sI-lsT"/>
+                            <constraint firstItem="EPK-Bc-rMN" firstAttribute="leading" secondItem="sww-0C-pzp" secondAttribute="leading" id="hf6-Jx-Fkq"/>
+                            <constraint firstItem="bii-kE-nJC" firstAttribute="leading" secondItem="Jrq-nM-PDT" secondAttribute="leadingMargin" id="rED-FC-7jf"/>
+                            <constraint firstItem="EPK-Bc-rMN" firstAttribute="top" secondItem="bii-kE-nJC" secondAttribute="bottom" constant="20" id="z8y-65-0FG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sww-0C-pzp"/>
                     </view>
+                    <connections>
+                        <outlet property="progressLabel" destination="EPK-Bc-rMN" id="ceM-Q9-hq5"/>
+                        <outlet property="progressView" destination="bii-kE-nJC" id="leJ-Sf-XIc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yac-yk-GyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="62" y="140"/>
+        </scene>
+        <!--Progress Chart View Controller-->
+        <scene sceneID="H5q-Kf-Nou">
+            <objects>
+                <viewController storyboardIdentifier="ProgressChartViewController" id="BLo-14-B6Z" customClass="ProgressChartViewController" customModule="Ranalyse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WUi-lD-RRe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-Ec-bPL" customClass="ORKDiscreteGraphChartView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uhf-Ec-bPL" firstAttribute="trailing" secondItem="N1S-oX-GEi" secondAttribute="trailing" id="9cb-nO-xSl"/>
+                            <constraint firstItem="N1S-oX-GEi" firstAttribute="bottom" secondItem="Uhf-Ec-bPL" secondAttribute="bottom" id="CKM-sr-yxs"/>
+                            <constraint firstItem="Uhf-Ec-bPL" firstAttribute="top" secondItem="N1S-oX-GEi" secondAttribute="top" id="sea-qb-DjM"/>
+                            <constraint firstItem="Uhf-Ec-bPL" firstAttribute="leading" secondItem="N1S-oX-GEi" secondAttribute="leading" id="zh8-iQ-YtK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N1S-oX-GEi"/>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="Uhf-Ec-bPL" id="5Tu-wo-tjV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6vf-iO-NNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.62318840579712" y="139.95535714285714"/>
         </scene>
     </scenes>
 </document>

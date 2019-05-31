@@ -11,6 +11,12 @@ import Foundation
 class DataStore {
     static let shared = DataStore()
     
+    static let calendar: Calendar = {
+        var calendar = Calendar.current
+        calendar.firstWeekday = 2 // 1 - Sunday, 2 - Monday, ...
+        return calendar
+    }()
+    
     private let dataService = DataService()
     
     private var runs: [Run]?

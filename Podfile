@@ -6,6 +6,7 @@ target 'Ranalyse' do
 
   # Pods for Ranalyse
   pod 'CoreGPX', :git => 'https://github.com/mishamoe/CoreGPX.git', :branch => 'gpxtrackpoint-extensions' # '= 0.5.1'
+  pod 'ResearchKit', :git => 'https://github.com/ResearchKit/ResearchKit.git'
   
 end
 

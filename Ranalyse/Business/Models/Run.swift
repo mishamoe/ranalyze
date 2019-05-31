@@ -284,6 +284,7 @@ extension Run {
         allPossibleSplits(of: nearestDistance.rawValue) { splits in
             if let fastestSplitDuration = splits.map({ $0.time }).min() {
                 vdot = VDOT(distance: nearestDistance, duration: fastestSplitDuration)
+                vdot?.date = self.date
             }
             
             completion(vdot)

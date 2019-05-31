@@ -1,22 +1,30 @@
 PODS:
   - CoreGPX (0.5.5)
+  - ResearchKit (2.0.0)
 
 DEPENDENCIES:
   - CoreGPX (from `https://github.com/mishamoe/CoreGPX.git`, branch `gpxtrackpoint-extensions`)
+  - ResearchKit (from `https://github.com/ResearchKit/ResearchKit.git`)
 
 EXTERNAL SOURCES:
   CoreGPX:
     :branch: gpxtrackpoint-extensions
     :git: https://github.com/mishamoe/CoreGPX.git
+  ResearchKit:
+    :git: https://github.com/ResearchKit/ResearchKit.git
 
 CHECKOUT OPTIONS:
   CoreGPX:
     :commit: 7fa8248529ae7fc1f30842bf88ff31cc219d7188
     :git: https://github.com/mishamoe/CoreGPX.git
+  ResearchKit:
+    :commit: 8f8cc4de141ea4b01a34f85bc0f166f556ddb7c5
+    :git: https://github.com/ResearchKit/ResearchKit.git
 
 SPEC CHECKSUMS:
   CoreGPX: 4d0f8f3bae5b405c9e17096d1de5154231c41b5e
+  ResearchKit: 08434028e4a29dd4558e0f3d5c03cbb871543590
 
-PODFILE CHECKSUM: 2ca049ec4f4051e4fc9781ccdaa70d21ca8d256f
+PODFILE CHECKSUM: 851da590cc1166b78b62449fb763de2defa38622
 
 COCOAPODS: 1.6.1

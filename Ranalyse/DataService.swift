@@ -14,7 +14,9 @@ struct DataService {
             "Nova_Poshta_Kyiv_Half_Marathon",
             "May_9",
             "May_12",
-            "NRC_Saturday_Run"
+            "NRC_Saturday_Run",
+            "May_20",
+            "Interpipe_Dnipro_Half_Marathon"
         ]
         
         DispatchQueue.global(qos: .userInitiated).async {

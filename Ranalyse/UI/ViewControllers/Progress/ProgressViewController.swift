@@ -9,7 +9,15 @@
 import UIKit
 
 class ProgressViewController: UIViewController {
-
+    enum Constant {
+        static let progressFormat = NSLocalizedString("%d of %d runs analyzed", comment: "")
+    }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet weak var progressLabel: UILabel!
+    
     // MARK: - Properties
     
     var runs: [Run]?
@@ -29,6 +37,8 @@ class ProgressViewController: UIViewController {
     
     @objc
     private func loadData() {
+        progressLabel.text = NSLocalizedString("Loading Data", comment: "")
+        
         DataStore.shared.getRuns { [weak self] result in
             switch result {
             case .success(let runs):
@@ -43,16 +53,23 @@ class ProgressViewController: UIViewController {
     func showProgress() {
         guard let runs = runs else { return }
         
-        var progress = [(Run, VDOT)]()
+        var progress = [VDOT]()
         
-        DispatchQueue.global(qos: .default).async {
+        DispatchQueue.global(qos: .default).async { [weak self] in
             let group = DispatchGroup()
+            var failedVDOTCount = 0
             
             for run in runs {
                 group.enter()
                 run.vdot { vdot in
                     if let vdot = vdot {
-                        progress.append((run, vdot))
+                        progress.append(vdot)
+                    } else {
+                        failedVDOTCount += 1
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self?.updateProgress(with: progress.count + failedVDOTCount, totalNumber: runs.count)
                     }
                     
                     group.leave()
@@ -60,13 +77,22 @@ class ProgressViewController: UIViewController {
             }
             
             group.notify(queue: .main) {
-                for (run, vdot) in progress {
-                    if let date = run.date {
-                        print("\(Formatter.date(date)): VDOT = \(vdot.formattedValue)")
-                    }
-                }
+                self?.showProgressChart(for: progress)
             }
         }
     }
 
+    func updateProgress(with analyzedNumber: Int, totalNumber: Int) {
+        progressLabel.text = String(format: Constant.progressFormat, analyzedNumber, totalNumber)
+        progressView.progress = Float(analyzedNumber) / Float(totalNumber)
+    }
+    
+    func showProgressChart(for data: [VDOT]) {
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "ProgressChartViewController") as? ProgressChartViewController else { return }
+        
+        viewController.progressData = data
+        
+        navigationController?.setViewControllers([viewController], animated: true)
+    }
+    
 }
