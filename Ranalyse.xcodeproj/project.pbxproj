@@ -33,6 +33,9 @@
 		90814E3922A17BC0006206FD /* WeekProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E3822A17BC0006206FD /* WeekProgress.swift */; };
 		90814E3B22A18087006206FD /* May_20.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 90814E3A22A18087006206FD /* May_20.gpx */; };
 		90814E3D22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 90814E3C22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx */; };
+		90814E3F22A18D9A006206FD /* StravaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E3E22A18D9A006206FD /* StravaAPIService.swift */; };
+		90814E4222A19697006206FD /* AuthenticationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E4122A19697006206FD /* AuthenticationSession.swift */; };
+		90814E4422A2B415006206FD /* StravaRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E4322A2B415006206FD /* StravaRequestHandler.swift */; };
 		908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4422872EA90052AC8C /* AppDelegate.swift */; };
 		908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4622872EA90052AC8C /* RunsListViewController.swift */; };
 		908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A4822872EA90052AC8C /* Main.storyboard */; };
@@ -153,6 +156,9 @@
 		90814E3822A17BC0006206FD /* WeekProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekProgress.swift; sourceTree = "<group>"; };
 		90814E3A22A18087006206FD /* May_20.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = May_20.gpx; sourceTree = "<group>"; };
 		90814E3C22A180A7006206FD /* Interpipe_Dnipro_Half_Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Interpipe_Dnipro_Half_Marathon.gpx; sourceTree = "<group>"; };
+		90814E3E22A18D9A006206FD /* StravaAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAPIService.swift; sourceTree = "<group>"; };
+		90814E4122A19697006206FD /* AuthenticationSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSession.swift; sourceTree = "<group>"; };
+		90814E4322A2B415006206FD /* StravaRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaRequestHandler.swift; sourceTree = "<group>"; };
 		908B3A4122872EA90052AC8C /* Ranalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908B3A4422872EA90052AC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B3A4622872EA90052AC8C /* RunsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsListViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +311,7 @@
 				90814E25229EE167006206FD /* Data */,
 				908B3A9D228764F30052AC8C /* Models */,
 				908B3A83228738190052AC8C /* Analysis */,
+				90814E4022A18DA2006206FD /* Services */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -324,6 +331,16 @@
 				90814E3422A049DA006206FD /* ProgressChartViewController.swift */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		90814E4022A18DA2006206FD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				90814E3E22A18D9A006206FD /* StravaAPIService.swift */,
+				90814E4122A19697006206FD /* AuthenticationSession.swift */,
+				90814E4322A2B415006206FD /* StravaRequestHandler.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		908B3A3822872EA90052AC8C = {
@@ -773,6 +790,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Ranalyse/Pods-Ranalyse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CoreGPX/CoreGPX.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
 			);
@@ -780,6 +798,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreGPX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
 			);
@@ -807,6 +826,7 @@
 				90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */,
 				908B3A99228760A80052AC8C /* Run.swift in Sources */,
 				908B3A9722875E420052AC8C /* DurationCalculator.swift in Sources */,
+				90814E3F22A18D9A006206FD /* StravaAPIService.swift in Sources */,
 				908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */,
 				90814E3722A170FF006206FD /* Week.swift in Sources */,
 				90F3907C229490CF00940069 /* UserDefaults+keys.swift in Sources */,
@@ -827,8 +847,11 @@
 				90A125B42291EBEF00DD4938 /* Split.swift in Sources */,
 				908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */,
 				90814E1D229917CD006206FD /* MeasureUnits.swift in Sources */,
+				90814E4422A2B415006206FD /* StravaRequestHandler.swift in Sources */,
 				90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */,
 				90814E1822991379006206FD /* AchievementsViewController.swift in Sources */,
+				90814E4222A19697006206FD /* AuthenticationSession.swift in Sources */,
+				90814E1822991379006206FD /* ResultsViewController.swift in Sources */,
 				90814E1B2299171C006206FD /* Results.swift in Sources */,
 				90814E2C229F1F13006206FD /* VDOT.swift in Sources */,
 			);
@@ -951,7 +974,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1006,7 +1029,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

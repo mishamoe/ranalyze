@@ -9,7 +9,14 @@
 import Foundation
 
 struct DataService {
+    
+    private let stravaAPI = StravaAPIService()
+    
     func loadRuns(completion: @escaping (Result<[Run], RanalyzeError>) -> Void) {
+        stravaAPI.authenticate() { _ in 
+            
+        }
+        
         let gpxFileNames = [
             "Nova_Poshta_Kyiv_Half_Marathon",
             "May_9",

@@ -8,6 +8,8 @@ target 'Ranalyse' do
   pod 'CoreGPX', :git => 'https://github.com/mishamoe/CoreGPX.git', :branch => 'gpxtrackpoint-extensions' # '= 0.5.1'
   pod 'ResearchKit', :git => 'https://github.com/ResearchKit/ResearchKit.git'
   
+  pod 'Alamofire', '= 4.8.2'
+#  pod 'OAuthSwift', '= 1.3.0'
 end
 
 target 'Ranalyse WatchKit App' do
