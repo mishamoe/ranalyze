@@ -14,14 +14,16 @@ class ProgressChartViewController: UIViewController {
     @IBOutlet weak var chartView: ORKDiscreteGraphChartView!
     
     var progressData: [VDOT]!
+    var grouoppedProgress: [WeekProgress]!
     var plotPoints = [ORKValueRange]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         assert(progressData != nil)
         
-        let grouoppedProgress = progressGrouppedByWeek()
+        grouoppedProgress = progressGrouppedByWeek()
         
         for weekProgress in grouoppedProgress {
             let valueRange = ORKValueRange(minimumValue: weekProgress.minVDOT, maximumValue: weekProgress.maxVDOT)
@@ -100,10 +102,13 @@ extension ProgressChartViewController: ORKValueRangeGraphChartViewDataSource {
     }
     
     func maximumValue(for graphChartView: ORKGraphChartView) -> Double {
+        if let max = progressData.max()?.value {
+            return max + 10
+        }
         return 85
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, titleForXAxisAtPointIndex pointIndex: Int) -> String? {
-        return nil
+        return Formatter.week(grouoppedProgress[pointIndex].week)
     }
 }

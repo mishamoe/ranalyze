@@ -65,4 +65,11 @@ struct Formatter {
     static func moreThanLowerBound(_ value: ClosedRange<BPM>) -> String {
         return "> \(value.lowerBound)"
     }
+    
+    static func week(_ value: Week) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d"
+        
+        return String(format: "%@ - %@", formatter.string(from: value.startDate),formatter.string(from: value.endDate))
+    }
 }

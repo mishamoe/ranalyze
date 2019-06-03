@@ -14,8 +14,11 @@ struct DataService {
             "Nova_Poshta_Kyiv_Half_Marathon",
             "May_9",
             "May_12",
-            "NRC_Saturday_Run",
+            "May_18",
             "May_20",
+            "May_24",
+            "May_29",
+            "May_30",
             "Interpipe_Dnipro_Half_Marathon"
         ]
         

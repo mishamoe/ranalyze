@@ -145,7 +145,7 @@ extension Run {
             }
             
             // Add point to split
-            if i == 1 {
+            if currentSplit.points.count == 0/*i == 1*/ {
                 currentSplit.addPoint(previousPoint)
             }
             currentSplit.addPoint(currentPoint)
