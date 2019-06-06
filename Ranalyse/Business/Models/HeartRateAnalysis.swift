@@ -39,7 +39,7 @@ public struct HeartRateAnalysis {
 }
 
 public enum HeartRateZone: Int {
-    case endurance  = 1 // Спокойная (ОЧЕНЬ НИЗКАЯ ИНТЕНСИВНОСТЬ)
+    case endurance  = 1 // і
     case moderate   = 2 // Средняя (НИЗКИЙ УРОВЕНЬ ИНТЕНСИВНОСТИ)
     case tempo      = 3 // Ритмичная (СРЕДНИЙ УРОВЕНЬ ИНТЕНСИВНОСТИ)
     case threshold  = 4 // Пороговая (ИНТЕНСИВНАЯ ТРЕНИРОВКА)

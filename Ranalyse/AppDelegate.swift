@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let surveyRequestHandler = SurveyRequestHandler()
-        Alamofire.SessionManager.default.adapter = surveyRequestHandler
-        Alamofire.SessionManager.default.retrier = surveyRequestHandler
+//        let surveyRequestHandler = SurveyRequestHandler()
+//        Alamofire.SessionManager.default.adapter = surveyRequestHandler
+//        Alamofire.SessionManager.default.retrier = surveyRequestHandler
         
         return true
     }

@@ -36,6 +36,8 @@
 		90814E3F22A18D9A006206FD /* StravaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E3E22A18D9A006206FD /* StravaAPIService.swift */; };
 		90814E4222A19697006206FD /* AuthenticationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E4122A19697006206FD /* AuthenticationSession.swift */; };
 		90814E4422A2B415006206FD /* StravaRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E4322A2B415006206FD /* StravaRequestHandler.swift */; };
+		90893F5222A99CF10075D25B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90893F5122A99CF10075D25B /* Login.storyboard */; };
+		90893F5422A99DE50075D25B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90893F5322A99DE50075D25B /* LoginViewController.swift */; };
 		908B3A4522872EA90052AC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4422872EA90052AC8C /* AppDelegate.swift */; };
 		908B3A4722872EA90052AC8C /* RunsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B3A4622872EA90052AC8C /* RunsListViewController.swift */; };
 		908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908B3A4822872EA90052AC8C /* Main.storyboard */; };
@@ -159,6 +161,8 @@
 		90814E3E22A18D9A006206FD /* StravaAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAPIService.swift; sourceTree = "<group>"; };
 		90814E4122A19697006206FD /* AuthenticationSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSession.swift; sourceTree = "<group>"; };
 		90814E4322A2B415006206FD /* StravaRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaRequestHandler.swift; sourceTree = "<group>"; };
+		90893F5122A99CF10075D25B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		90893F5322A99DE50075D25B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		908B3A4122872EA90052AC8C /* Ranalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908B3A4422872EA90052AC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B3A4622872EA90052AC8C /* RunsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsListViewController.swift; sourceTree = "<group>"; };
@@ -343,6 +347,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		90893F5522A99DE90075D25B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				90893F5322A99DE50075D25B /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		908B3A3822872EA90052AC8C = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +488,7 @@
 			children = (
 				90E1E33022B040C40078D002 /* AnalysisProgressViewController.swift */,
 				90E1E33322B042740078D002 /* AnalysisProgressViewController.xib */,
+				90893F5522A99DE90075D25B /* Login */,
 				90F39071229484F800940069 /* Runs */,
 				90814E192299137F006206FD /* Achievements */,
 				90F390722294850000940069 /* Settings */,
@@ -488,6 +501,7 @@
 		908B3A9F2287652E0052AC8C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				90893F5122A99CF10075D25B /* Login.storyboard */,
 				908B3A4822872EA90052AC8C /* Main.storyboard */,
 				90F3907522948A9000940069 /* Runs.storyboard */,
 				90F3907722948AF500940069 /* Achievements.storyboard */,
@@ -685,6 +699,7 @@
 				908B3A4C22872EAC0052AC8C /* Assets.xcassets in Resources */,
 				904984EC22A4F69E004CFCA8 /* May_29.gpx in Resources */,
 				908B3A4A22872EA90052AC8C /* Main.storyboard in Resources */,
+				90893F5222A99CF10075D25B /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +847,7 @@
 				90F3907C229490CF00940069 /* UserDefaults+keys.swift in Sources */,
 				90814E222299298B006206FD /* ResultsAnalyzer.swift in Sources */,
 				908B3A82228738110052AC8C /* ElevationCalculator.swift in Sources */,
+				90893F5422A99DE50075D25B /* LoginViewController.swift in Sources */,
 				90F3906A22947F3A00940069 /* DataStore.swift in Sources */,
 				908B3AA1228767170052AC8C /* HeartRateCalculator.swift in Sources */,
 				90F3906C22947FF000940069 /* DataService.swift in Sources */,
