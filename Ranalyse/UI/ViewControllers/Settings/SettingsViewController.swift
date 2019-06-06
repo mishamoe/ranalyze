@@ -11,17 +11,21 @@ import UIKit
 class SettingsViewController: UIViewController {
     enum Section {
         case userData
+        case actions
         
         var rows: [Row] {
             switch self {
             case .userData:
                 return [.maxHeartRate]
+            case .actions:
+                return [.actionLogout]
             }
         }
     }
     
     enum Row {
         case maxHeartRate
+        case actionLogout
     }
     
     // MARK: - Outlets
@@ -36,7 +40,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Properties
     
-    let sections: [Section] = [.userData]
+    let sections: [Section] = [.actions]
     
     // MARK: - Methods
     
@@ -44,7 +48,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        loadData()
+//        loadData()
     }
     
     private func setupView() {
@@ -52,8 +56,10 @@ class SettingsViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
+    
     @objc
     private func loadData() {
+        /*
         let group = DispatchGroup()
         
         group.enter()
@@ -65,6 +71,7 @@ class SettingsViewController: UIViewController {
             self?.tableView.reloadData()
             self?.refreshControl.endRefreshing()
         }
+        */
     }
     
     private func updateMaxHeartRate(_ completion: @escaping () -> Void) {
@@ -76,6 +83,7 @@ class SettingsViewController: UIViewController {
             completion()
         }
     }
+ 
     
     /*
     private func presentActions(for row: Row) {
@@ -116,12 +124,17 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         switch row {
         case .maxHeartRate:
             cell.textLabel?.text = NSLocalizedString("Max Heart Rate", comment: "")
+            cell.textLabel?.textColor = .darkText
             
             if let maxHeartRate: Int = UserDefaults.get(key: .maxHeartRate) {
                 cell.detailTextLabel?.text = Formatter.heartRate(maxHeartRate)
             } else {
                 cell.detailTextLabel?.text = NSLocalizedString("N/A", comment: "")
             }
+        case .actionLogout:
+            cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
+            cell.textLabel?.textColor = .red
+            cell.detailTextLabel?.text = nil
         }
         
         return cell
@@ -131,6 +144,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         switch sections[section] {
         case .userData:
             return NSLocalizedString("User Data", comment: "")
+        case .actions:
+            return NSLocalizedString("Actions", comment: "")
         }
     }
     
