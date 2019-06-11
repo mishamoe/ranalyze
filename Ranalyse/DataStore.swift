@@ -22,6 +22,11 @@ class DataStore {
     private var runs: [Run]?
     
     func getRuns(_ completion: @escaping (Result<[Run], RanalyzeError>) -> Void) {
+        if let runs = runs {
+            completion(.success(runs))
+            return
+        }
+        
         dataService.loadRuns { result in
             if case .success(let runs) = result {
                 self.runs = runs
@@ -63,5 +68,25 @@ class DataStore {
         completion(
             dataService.findFastestSplit(runs: runs)
         )
+    }
+    
+    public func getBestVDOTForLastTwoWeeks(_ completion: @escaping (Result<VDOT, RanalyzeError>) -> Void) {
+        getRuns { [weak self] result in
+            if case .success(let runs) = result {
+                self?.dataService.findBestVDOTForLastTwoWeeks(runs: runs, completion: completion)
+            } else if case .failure(let error) = result {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    public func getBestVDOT(_ completion: @escaping (Result<VDOT, RanalyzeError>) -> Void) {
+        getRuns { [weak self] result in
+            if case .success(let runs) = result {
+                self?.dataService.findBestVDOT(runs: runs, completion: completion)
+            } else if case .failure(let error) = result {
+                completion(.failure(error))
+            }
+        }
     }
 }

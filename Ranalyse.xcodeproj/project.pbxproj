@@ -24,7 +24,6 @@
 		90814E222299298B006206FD /* ResultsAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E212299298B006206FD /* ResultsAnalyzer.swift */; };
 		90814E24229EE161006206FD /* VDOT.csv in Resources */ = {isa = PBXBuildFile; fileRef = 90814E23229EE161006206FD /* VDOT.csv */; };
 		90814E27229F1A18006206FD /* Progress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90814E26229F1A18006206FD /* Progress.storyboard */; };
-		90814E29229F1C63006206FD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E28229F1C63006206FD /* ProgressViewController.swift */; };
 		90814E2C229F1F13006206FD /* VDOT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2B229F1F13006206FD /* VDOT.swift */; };
 		90814E2E229F1F2C006206FD /* VDOTDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2D229F1F2C006206FD /* VDOTDatabase.swift */; };
 		90814E30229F1F5F006206FD /* Duration+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90814E2F229F1F5F006206FD /* Duration+extensions.swift */; };
@@ -61,6 +60,8 @@
 		90A125B42291EBEF00DD4938 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B32291EBEF00DD4938 /* Split.swift */; };
 		90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B52291F0F300DD4938 /* SplitsViewController.swift */; };
 		90A125B82291F1EF00DD4938 /* SplitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */; };
+		90E1E33122B040C40078D002 /* AnalysisProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E1E33022B040C40078D002 /* AnalysisProgressViewController.swift */; };
+		90E1E33522B042740078D002 /* AnalysisProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E1E33322B042740078D002 /* AnalysisProgressViewController.xib */; };
 		90E890652295D1FA000ECBE3 /* HeartRateAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E890642295D1FA000ECBE3 /* HeartRateAnalysis.swift */; };
 		90E890672295D56A000ECBE3 /* HeartRateZoneTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E890662295D56A000ECBE3 /* HeartRateZoneTest.swift */; };
 		90F3906822933DE500940069 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F3906722933DE500940069 /* Formatter.swift */; };
@@ -143,7 +144,6 @@
 		90814E212299298B006206FD /* ResultsAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsAnalyzer.swift; sourceTree = "<group>"; };
 		90814E23229EE161006206FD /* VDOT.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VDOT.csv; sourceTree = "<group>"; };
 		90814E26229F1A18006206FD /* Progress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Progress.storyboard; sourceTree = "<group>"; };
-		90814E28229F1C63006206FD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		90814E2B229F1F13006206FD /* VDOT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDOT.swift; sourceTree = "<group>"; };
 		90814E2D229F1F2C006206FD /* VDOTDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDOTDatabase.swift; sourceTree = "<group>"; };
 		90814E2F229F1F5F006206FD /* Duration+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Duration+extensions.swift"; sourceTree = "<group>"; };
@@ -186,6 +186,8 @@
 		90A125B32291EBEF00DD4938 /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
 		90A125B52291F0F300DD4938 /* SplitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitsViewController.swift; sourceTree = "<group>"; };
 		90A125B72291F1EF00DD4938 /* SplitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTableViewCell.swift; sourceTree = "<group>"; };
+		90E1E33022B040C40078D002 /* AnalysisProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisProgressViewController.swift; sourceTree = "<group>"; };
+		90E1E33322B042740078D002 /* AnalysisProgressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalysisProgressViewController.xib; sourceTree = "<group>"; };
 		90E890642295D1FA000ECBE3 /* HeartRateAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateAnalysis.swift; sourceTree = "<group>"; };
 		90E890662295D56A000ECBE3 /* HeartRateZoneTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateZoneTest.swift; sourceTree = "<group>"; };
 		90F3906722933DE500940069 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -319,7 +321,6 @@
 		90814E2A229F1C68006206FD /* Progress */ = {
 			isa = PBXGroup;
 			children = (
-				90814E28229F1C63006206FD /* ProgressViewController.swift */,
 				90814E3422A049DA006206FD /* ProgressChartViewController.swift */,
 			);
 			path = Progress;
@@ -456,6 +457,8 @@
 		908B3A9E228765100052AC8C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				90E1E33022B040C40078D002 /* AnalysisProgressViewController.swift */,
+				90E1E33322B042740078D002 /* AnalysisProgressViewController.xib */,
 				90F39071229484F800940069 /* Runs */,
 				90814E192299137F006206FD /* Achievements */,
 				90F390722294850000940069 /* Settings */,
@@ -660,6 +663,7 @@
 				90A125B22291C43900DD4938 /* May_18.gpx in Resources */,
 				90814E24229EE161006206FD /* VDOT.csv in Resources */,
 				90814E3B22A18087006206FD /* May_20.gpx in Resources */,
+				90E1E33522B042740078D002 /* AnalysisProgressViewController.xib in Resources */,
 				908B3AAB2288B42A0052AC8C /* May_12.gpx in Resources */,
 				908B3A4C22872EAC0052AC8C /* Assets.xcassets in Resources */,
 				904984EC22A4F69E004CFCA8 /* May_29.gpx in Resources */,
@@ -795,7 +799,7 @@
 				90814E2E229F1F2C006206FD /* VDOTDatabase.swift in Sources */,
 				908B3AA8228890D80052AC8C /* GPXTrackPoint+extensions.swift in Sources */,
 				90814E1222972559006206FD /* HeartRateZonesViewController.swift in Sources */,
-				90814E29229F1C63006206FD /* ProgressViewController.swift in Sources */,
+				90E1E33122B040C40078D002 /* AnalysisProgressViewController.swift in Sources */,
 				908B3A9322873AE50052AC8C /* DistanceCalculator.swift in Sources */,
 				90814E32229F1F82006206FD /* KnownDistance.swift in Sources */,
 				90F3907A22948E6C00940069 /* SettingsTableViewCell.swift in Sources */,

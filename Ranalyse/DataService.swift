@@ -60,4 +60,38 @@ struct DataService {
             return .failure(.errorWhenFindingMaxHeartRate)
         }
     }
+    
+    func findBestVDOTForLastTwoWeeks(runs: [Run], completion: @escaping (Result<VDOT, RanalyzeError>) -> Void) {
+        findBestVDOT(runs: runs.forLastTwoWeeks(), completion: completion)
+    }
+    
+    func findBestVDOT(runs: [Run], completion: @escaping (Result<VDOT, RanalyzeError>) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            var vdots = [VDOT]()
+            let group = DispatchGroup()
+            
+            let _ = DispatchQueue.global(qos: .userInitiated)
+            DispatchQueue.concurrentPerform(iterations: runs.count) { index in
+                let run = runs[index]
+                group.enter()
+                run.vdot { vdot in
+                    if let vdot = vdot {
+                        vdots.append(vdot)
+                    } else {
+                        print("Error: VDOT for run \(index + 1)/\(runs.count) is nil")
+                    }
+                    
+                    group.leave()
+                }
+            }
+            
+            group.notify(queue: .main) {
+                if let bestVDOT = vdots.max() {
+                    completion(.success(bestVDOT))
+                } else {
+                    completion(.failure(RanalyzeError.errorWhenFindingBestVDOT))
+                }
+            }
+        }
+    }
 }

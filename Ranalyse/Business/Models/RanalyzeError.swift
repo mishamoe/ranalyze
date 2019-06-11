@@ -12,6 +12,7 @@ enum RanalyzeError: Error {
     case errorWhenLoadingRuns
     case errorWhenFindingMaxHeartRate
     case errorWhenFindingFastestSplit
+    case errorWhenFindingBestVDOT
     
     var localizedDescription: String {
         switch self {
@@ -21,6 +22,8 @@ enum RanalyzeError: Error {
             return NSLocalizedString("An error occurred while finding maximal heart rate", comment: "")
         case .errorWhenFindingFastestSplit:
             return NSLocalizedString("An error occurred while finding fastest split", comment: "")
+        case .errorWhenFindingBestVDOT:
+            return NSLocalizedString("An error occurred while finding best VDOT", comment: "")
         }
     }
 }

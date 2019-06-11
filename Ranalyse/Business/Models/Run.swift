@@ -291,3 +291,19 @@ extension Run {
         }
     }
 }
+
+extension Array where Element == Run {
+    func forLastTwoWeeks() -> [Run] {
+        return filter { run in
+            guard let date = run.date else {
+                return false
+            }
+            
+            guard let twoWeeksAgo = Calendar.current.date(byAdding: .day, value: -14, to: Date()) else {
+                return false
+            }
+            
+            return date > twoWeeksAgo
+        }
+    }
+}

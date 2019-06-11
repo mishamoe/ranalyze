@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnalysisProgressViewController" customModule="Ranalyse" customModuleProvider="target">
+            <connections>
+                <outlet property="progressLabel" destination="5hp-yj-K82" id="D9n-Ba-Ylz"/>
+                <outlet property="progressView" destination="D5W-Jq-OFi" id="9dB-uX-y1z"/>
+                <outlet property="view" destination="9ac-Pj-M1y" id="4gW-R7-lik"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9ac-Pj-M1y">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 of 3 runs analyzed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hp-yj-K82">
+                    <rect key="frame" x="0.0" y="469" width="414" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKY-uN-WqY">
+                    <rect key="frame" x="0.0" y="490" width="414" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D5W-Jq-OFi">
+                    <rect key="frame" x="20" y="447" width="374" height="2"/>
+                </progressView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="5hp-yj-K82" firstAttribute="leading" secondItem="kVj-Cq-QLd" secondAttribute="leading" id="FuY-xL-RXq"/>
+                <constraint firstItem="PKY-uN-WqY" firstAttribute="leading" secondItem="5hp-yj-K82" secondAttribute="leading" id="KyC-KJ-jRK"/>
+                <constraint firstItem="kVj-Cq-QLd" firstAttribute="trailing" secondItem="5hp-yj-K82" secondAttribute="trailing" id="Np2-YD-nkp"/>
+                <constraint firstItem="PKY-uN-WqY" firstAttribute="top" secondItem="5hp-yj-K82" secondAttribute="bottom" id="Q4G-eE-BPK"/>
+                <constraint firstItem="PKY-uN-WqY" firstAttribute="trailing" secondItem="5hp-yj-K82" secondAttribute="trailing" id="Z7z-eR-EFU"/>
+                <constraint firstItem="D5W-Jq-OFi" firstAttribute="centerY" secondItem="9ac-Pj-M1y" secondAttribute="centerY" id="a7A-da-YXB"/>
+                <constraint firstItem="D5W-Jq-OFi" firstAttribute="leading" secondItem="9ac-Pj-M1y" secondAttribute="leadingMargin" id="gb9-49-LhP"/>
+                <constraint firstItem="D5W-Jq-OFi" firstAttribute="centerX" secondItem="9ac-Pj-M1y" secondAttribute="centerX" id="jKE-yt-VKR"/>
+                <constraint firstItem="5hp-yj-K82" firstAttribute="top" secondItem="D5W-Jq-OFi" secondAttribute="bottom" constant="20" id="mWc-v7-2zV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="kVj-Cq-QLd"/>
+            <point key="canvasLocation" x="36" y="-185"/>
+        </view>
+    </objects>
+</document>

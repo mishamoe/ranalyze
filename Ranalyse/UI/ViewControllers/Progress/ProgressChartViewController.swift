@@ -11,35 +11,29 @@ import ResearchKit
 
 class ProgressChartViewController: UIViewController {
 
-    @IBOutlet weak var chartView: ORKDiscreteGraphChartView!
+    @IBOutlet private weak var chartView: ORKDiscreteGraphChartView!
     
-    var progressData: [VDOT]!
-    var grouoppedProgress: [WeekProgress]!
-    var plotPoints = [ORKValueRange]()
+    private var runs: [Run]?
+    private var vdots: [VDOT]?
     
+    private var isFirstTimeAppearance = true
+    private var analysisProgressViewController: AnalysisProgressViewController?
+    
+    private var grouppedProgress: [WeekProgress]!
+    private var plotPoints = [ORKValueRange]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        assert(progressData != nil)
-        
-        grouoppedProgress = progressGrouppedByWeek()
-        
-        for weekProgress in grouoppedProgress {
-            let valueRange = ORKValueRange(minimumValue: weekProgress.minVDOT, maximumValue: weekProgress.maxVDOT)
-            plotPoints.append(valueRange)
-        }
-        
-//        for (run, vdot) in progressData {
-//            if let date = run.date {
-//                print("\(Formatter.date(date)): VDOT = \(vdot.formattedValue)")
-//            }
-//        }
-        
+        setupView()
+    }
+    
+    private func setupView() {
+        title = NSLocalizedString("Progress", comment: "")
         setupChartView()
     }
-
-    func setupChartView() {
+    
+    private func setupChartView() {
         chartView.dataSource = self
         
         chartView.showsHorizontalReferenceLines = true
@@ -50,20 +44,94 @@ class ProgressChartViewController: UIViewController {
         chartView.scrubberLineColor = UIColor.red
     }
     
-    func progressGrouppedByWeek() -> [WeekProgress] {
-//        var grouppedProgress = [Week: [VDOT]]()
-//        for vdot in progressData {
-//            guard let date = vdot.date, let week = date.week else { continue }
-//
-//            if grouppedProgress[week] == nil {
-//                grouppedProgress[week] = [VDOT]()
-//            }
-//
-//            grouppedProgress[week]?.append(vdot)
-//        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isFirstTimeAppearance {
+            showAnalysisProgressViewController { [weak self] in
+                self?.loadData()
+            }
+            
+            isFirstTimeAppearance = false
+        }
+    }
+    
+    private func showAnalysisProgressViewController(_ completion: @escaping () -> Void) {
+        analysisProgressViewController = AnalysisProgressViewController(nibName: "AnalysisProgressViewController", bundle: nil)
+        guard let analysisProgressViewController = analysisProgressViewController else {
+            fatalError("Unable to initialize AnalysisProgressViewController from nib file")
+        }
+        
+        analysisProgressViewController.delegate = self
+        
+        present(analysisProgressViewController, animated: true, completion: completion)
+    }
+    
+    @objc
+    private func loadData() {
+        DataStore.shared.getRuns { [weak self] result in
+            switch result {
+            case .success(let runs):
+                self?.runs = runs
+                
+                self?.getVDOTs(for: runs, completion: { result in
+                    switch result {
+                    case .success(let vdots):
+                        self?.vdots = vdots
+                        self?.populatePlotPoints()
+                        self?.chartView.reloadData()
+                        self?.analysisProgressViewController?.dismiss(animated: true)
+                    case .failure(let error):
+                        self?.showError(error)
+                    }
+                })
+            case .failure(let error):
+                self?.showError(error)
+            }
+        }
+    }
+    
+    private func getVDOTs(for runs: [Run], completion: @escaping (Result<[VDOT], RanalyzeError>) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            var vdots = [VDOT]()
+            let group = DispatchGroup()
+            
+            let _ = DispatchQueue.global(qos: .userInitiated)
+            DispatchQueue.concurrentPerform(iterations: runs.count) { [weak self] index in
+                let run = runs[index]
+                group.enter()
+                run.vdot { vdot in
+                    if let vdot = vdot {
+                        vdots.append(vdot)
+                    } else {
+                        print("Error: VDOT for run \(index + 1)/\(runs.count) is nil")
+                    }
+                    
+                    self?.analysisProgressViewController?.incrementProgress()
+                    group.leave()
+                }
+            }
+            
+            group.notify(queue: .main) {
+                completion(.success(vdots))
+            }
+        }
+    }
+    
+    private func populatePlotPoints() {
+        grouppedProgress = progressGrouppedByWeek()
+        
+        for weekProgress in grouppedProgress {
+            let valueRange = ORKValueRange(minimumValue: weekProgress.minVDOT, maximumValue: weekProgress.maxVDOT)
+            plotPoints.append(valueRange)
+        }
+    }
+    
+    private func progressGrouppedByWeek() -> [WeekProgress] {
+        guard let vdots = vdots else { return [] }
         
         var progress = [WeekProgress]()
-        for vdot in progressData {
+        for vdot in vdots {
             guard let date = vdot.date, let week = date.week else { continue }
             if let weekProgress = progress.first(where: { $0.week == week }) {
                 weekProgress.addVDOT(vdot)
@@ -78,7 +146,6 @@ class ProgressChartViewController: UIViewController {
         for weekProgress in progress {
             print("\(Formatter.date(weekProgress.week.startDate))-\(Formatter.date(weekProgress.week.endDate)): \(weekProgress.vdots.count)")
         }
-        
         
         return progress
     }
@@ -102,13 +169,23 @@ extension ProgressChartViewController: ORKValueRangeGraphChartViewDataSource {
     }
     
     func maximumValue(for graphChartView: ORKGraphChartView) -> Double {
-        if let max = progressData.max()?.value {
+        if let max = vdots?.max()?.value {
             return max + 10
         }
         return 85
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, titleForXAxisAtPointIndex pointIndex: Int) -> String? {
-        return Formatter.week(grouoppedProgress[pointIndex].week)
+        return Formatter.week(grouppedProgress[pointIndex].week)
+    }
+}
+
+extension ProgressChartViewController: AnalysisProgressDelegate {
+    var initialProgressText: String? {
+        return NSLocalizedString("Loading Data", comment: "")
+    }
+    
+    var totalNumberOfRuns: Int {
+        return runs?.count ?? 0
     }
 }
