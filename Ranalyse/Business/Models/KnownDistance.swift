@@ -39,4 +39,23 @@ enum KnownDistance: Distance {
             return nil
         }
     }
+    
+    var formattedValue: String {
+        switch self {
+        case .distance1500:
+            return "1.5 km"
+        case .distance3000:
+            return "3 km"
+        case .distance5000:
+            return "5 km"
+        case .distance10000:
+            return "10 km"
+        case .distance15000:
+            return "15 km"
+        case .distanceHalfMarathon:
+            return "Half marathon (21.0975 km)"
+        case .distanceMarathon:
+            return "Marathon (42.195 km)"
+        }
+    }
 }

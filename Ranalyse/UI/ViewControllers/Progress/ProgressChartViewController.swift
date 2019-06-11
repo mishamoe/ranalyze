@@ -17,7 +17,12 @@ class ProgressChartViewController: UIViewController {
     private var vdots: [VDOT]?
     
     private var isFirstTimeAppearance = true
-    private var analysisProgressViewController: AnalysisProgressViewController?
+    
+    private lazy var analysisProgressViewController: AnalysisProgressViewController = {
+        let vc = AnalysisProgressViewController(nibName: "AnalysisProgressViewController", bundle: nil)
+        vc.delegate = self
+        return vc
+    }()
     
     private var grouppedProgress: [WeekProgress]!
     private var plotPoints = [ORKValueRange]()
@@ -48,23 +53,10 @@ class ProgressChartViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if isFirstTimeAppearance {
-            showAnalysisProgressViewController { [weak self] in
-                self?.loadData()
-            }
-            
+            present(analysisProgressViewController, animated: true)
+            loadData()
             isFirstTimeAppearance = false
         }
-    }
-    
-    private func showAnalysisProgressViewController(_ completion: @escaping () -> Void) {
-        analysisProgressViewController = AnalysisProgressViewController(nibName: "AnalysisProgressViewController", bundle: nil)
-        guard let analysisProgressViewController = analysisProgressViewController else {
-            fatalError("Unable to initialize AnalysisProgressViewController from nib file")
-        }
-        
-        analysisProgressViewController.delegate = self
-        
-        present(analysisProgressViewController, animated: true, completion: completion)
     }
     
     @objc
@@ -73,18 +65,19 @@ class ProgressChartViewController: UIViewController {
             switch result {
             case .success(let runs):
                 self?.runs = runs
+                self?.analysisProgressViewController.updateProgress(with: 0)
                 
-                self?.getVDOTs(for: runs, completion: { result in
+                self?.getVDOTs(for: runs) { [weak self] result in
                     switch result {
                     case .success(let vdots):
                         self?.vdots = vdots
                         self?.populatePlotPoints()
                         self?.chartView.reloadData()
-                        self?.analysisProgressViewController?.dismiss(animated: true)
+                        self?.analysisProgressViewController.dismiss(animated: true)
                     case .failure(let error):
                         self?.showError(error)
                     }
-                })
+                }
             case .failure(let error):
                 self?.showError(error)
             }
@@ -107,7 +100,7 @@ class ProgressChartViewController: UIViewController {
                         print("Error: VDOT for run \(index + 1)/\(runs.count) is nil")
                     }
                     
-                    self?.analysisProgressViewController?.incrementProgress()
+                    self?.analysisProgressViewController.incrementProgress()
                     group.leave()
                 }
             }
@@ -151,6 +144,12 @@ class ProgressChartViewController: UIViewController {
     }
 }
 
+extension ProgressChartViewController: AnalysisProgressDelegate {
+    var totalNumberOfRuns: Int {
+        return runs?.count ?? 0
+    }
+}
+
 extension ProgressChartViewController: ORKValueRangeGraphChartViewDataSource {
     func graphChartView(_ graphChartView: ORKGraphChartView, dataPointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKValueRange {
         return plotPoints[pointIndex]
@@ -177,15 +176,5 @@ extension ProgressChartViewController: ORKValueRangeGraphChartViewDataSource {
     
     func graphChartView(_ graphChartView: ORKGraphChartView, titleForXAxisAtPointIndex pointIndex: Int) -> String? {
         return Formatter.week(grouppedProgress[pointIndex].week)
-    }
-}
-
-extension ProgressChartViewController: AnalysisProgressDelegate {
-    var initialProgressText: String? {
-        return NSLocalizedString("Loading Data", comment: "")
-    }
-    
-    var totalNumberOfRuns: Int {
-        return runs?.count ?? 0
     }
 }

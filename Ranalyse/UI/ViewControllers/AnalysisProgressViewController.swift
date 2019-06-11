@@ -13,6 +13,12 @@ protocol AnalysisProgressDelegate: class {
     var initialProgressText: String? { get }
 }
 
+extension AnalysisProgressDelegate {
+    var initialProgressText: String? {
+        return NSLocalizedString("Loading Data", comment: "")
+    }
+}
+
 class AnalysisProgressViewController: UIViewController {
     enum Constant {
         static let progressFormat = NSLocalizedString("%d of %d runs analyzed", comment: "")

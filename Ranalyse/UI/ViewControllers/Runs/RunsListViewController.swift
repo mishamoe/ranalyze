@@ -40,6 +40,7 @@ class RunsListViewController: UIViewController {
     
     @objc
     private func loadData() {
+        refreshControl.beginRefreshing()
         DataStore.shared.getRuns { [weak self] result in
             switch result {
             case .success(let runs):

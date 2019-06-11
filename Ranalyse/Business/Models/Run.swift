@@ -306,4 +306,18 @@ extension Array where Element == Run {
             return date > twoWeeksAgo
         }
     }
+    
+    func forLastMonth() -> [Run] {
+        return filter { run in
+            guard let date = run.date else {
+                return false
+            }
+            
+            guard let monthAgo = Calendar.current.date(byAdding: .month, value: -1, to: Date()) else {
+                return false
+            }
+            
+            return date > monthAgo
+        }
+    }
 }

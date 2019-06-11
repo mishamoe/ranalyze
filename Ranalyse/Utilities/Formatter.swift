@@ -72,4 +72,8 @@ struct Formatter {
         
         return String(format: "%@ - %@", formatter.string(from: value.startDate),formatter.string(from: value.endDate))
     }
+    
+    static func vdot(_ vdot: VDOT) -> String {
+        return String(format: "%.1f", vdot.value)
+    }
 }
