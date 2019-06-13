@@ -152,5 +152,15 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 //        presentActions(for: sections[indexPath.section].rows[indexPath.row])
+        
+        let row = sections[indexPath.section].rows[indexPath.row]
+        if row == .actionLogout {
+            DataStore.shared.dataService.stravaAPI.deauthorize { [weak self] in
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                if let vc = storyboard.instantiateInitialViewController() {
+                    self?.present(vc, animated: true)
+                }
+            }
+        }
     }
 }

@@ -13,6 +13,9 @@ struct DataService {
     let stravaAPI = StravaAPIService()
     
     func loadRuns(completion: @escaping (Result<[Run], RanalyzeError>) -> Void) {
+        /*stravaAPI.activities {
+            completion(.success([]))
+        }*/
         let gpxFileNames = [
             "Nova_Poshta_Kyiv_Half_Marathon",
             "May_9",

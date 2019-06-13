@@ -121,13 +121,48 @@ final class StravaAPIService {
         
         Alamofire
             .request("https://www.strava.com/oauth/token", method: .post, parameters: parameters)
-            .responseJSON { response in
-                debugPrint(response)
+            .responseJSON { [weak self] response in
+                print("Request: POST https://www.strava.com/oauth/token")
                 
-                if let json = response.result.value {
-                    print("JSON: \(json)")
+                if let json = response.result.value as? [String: Any] {
+                    print("Response: \(json)\n")
+                    
+                    self?.accessToken = json["access_token"] as? String
+                    self?.refreshToken = json["refresh_token"] as? String
+                    
+                    if let expiresAt = json["expires_at"] as? TimeInterval {
+                        self?.tokenExpiresAt = Date(timeIntervalSince1970: expiresAt)
+                    }
                 }
                 
+                completion()
+        }
+    }
+    
+    func activities(_ completion: @escaping () -> Void) {
+        let parameters: Parameters = [:]/*["before": 0,
+                                      "after": 0,
+                                      "page": 1,
+                                      "per_page": 30]*/
+        
+        Alamofire
+            .request("https://www.strava.com/api/v3/athlete/activities", method: .get, parameters: parameters)
+            .responseJSON { [weak self] response in
+                print("Request: GET https://www.strava.com/api/v3/athlete/activities")
+                if let json = response.result.value as? [String: Any] {
+                    print("Response: \(json)\n")
+                    
+                    
+                }
+                
+                completion()
+        }
+    }
+    
+    func deauthorize(_ completion: @escaping () -> Void) {
+        Alamofire
+            .request("https://www.strava.com/oauth/deauthorize", method: .post, parameters: [:])
+            .responseJSON { response in
                 completion()
         }
     }

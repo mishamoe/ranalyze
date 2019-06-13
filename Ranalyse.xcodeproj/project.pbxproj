@@ -10,6 +10,7 @@
 		2988D2360ECBAAA5A813FA79 /* Pods_Ranalyse_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2758F08523D8F01603D422 /* Pods_Ranalyse_WatchKit_Extension.framework */; };
 		2E6EB24B2DC66A94DFB42EAD /* Pods_Ranalyse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400A648857D136892B57298F /* Pods_Ranalyse.framework */; };
 		466D12772D56A8FE2BC86FAB /* Pods_Ranalyse_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DCE530D4B58911C6413E81 /* Pods_Ranalyse_WatchKit_App.framework */; };
+		902E96AE22B2D59A00565D09 /* OAuth2Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E96AD22B2D59A00565D09 /* OAuth2Handler.swift */; };
 		904984E722A4EB01004CFCA8 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 904984E622A4EB01004CFCA8 /* Results.storyboard */; };
 		904984EB22A4F69E004CFCA8 /* May_30.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 904984E822A4F69E004CFCA8 /* May_30.gpx */; };
 		904984EC22A4F69E004CFCA8 /* May_29.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 904984E922A4F69E004CFCA8 /* May_29.gpx */; };
@@ -135,6 +136,7 @@
 		068D617F9BD0EC20E66B57C1 /* Pods-Ranalyse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse/Pods-Ranalyse.release.xcconfig"; sourceTree = "<group>"; };
 		400A648857D136892B57298F /* Pods_Ranalyse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranalyse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D585F9FB33E0F103408F690 /* Pods-Ranalyse WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranalyse WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-Ranalyse WatchKit App/Pods-Ranalyse WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		902E96AD22B2D59A00565D09 /* OAuth2Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Handler.swift; sourceTree = "<group>"; };
 		904984E622A4EB01004CFCA8 /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		904984E822A4F69E004CFCA8 /* May_30.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = May_30.gpx; sourceTree = "<group>"; };
 		904984E922A4F69E004CFCA8 /* May_29.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = May_29.gpx; sourceTree = "<group>"; };
@@ -340,9 +342,11 @@
 		90814E4022A18DA2006206FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				90F3906B22947FF000940069 /* DataService.swift */,
 				90814E3E22A18D9A006206FD /* StravaAPIService.swift */,
 				90814E4122A19697006206FD /* AuthenticationSession.swift */,
 				90814E4322A2B415006206FD /* StravaRequestHandler.swift */,
+				902E96AD22B2D59A00565D09 /* OAuth2Handler.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -384,7 +388,6 @@
 			children = (
 				908B3A4422872EA90052AC8C /* AppDelegate.swift */,
 				90F3906922947F3A00940069 /* DataStore.swift */,
-				90F3906B22947FF000940069 /* DataService.swift */,
 				90814E2022992958006206FD /* Business */,
 				90814E1F22992926006206FD /* UI */,
 				90814E1E22992907006206FD /* Utilities */,
@@ -850,6 +853,7 @@
 				90893F5422A99DE50075D25B /* LoginViewController.swift in Sources */,
 				90F3906A22947F3A00940069 /* DataStore.swift in Sources */,
 				908B3AA1228767170052AC8C /* HeartRateCalculator.swift in Sources */,
+				902E96AE22B2D59A00565D09 /* OAuth2Handler.swift in Sources */,
 				90F3906C22947FF000940069 /* DataService.swift in Sources */,
 				908B3AAF2288B7B50052AC8C /* RunDetailsTableViewController.swift in Sources */,
 				90814E3922A17BC0006206FD /* WeekProgress.swift in Sources */,
@@ -867,7 +871,7 @@
 				90A125B62291F0F300DD4938 /* SplitsViewController.swift in Sources */,
 				90814E1822991379006206FD /* AchievementsViewController.swift in Sources */,
 				90814E4222A19697006206FD /* AuthenticationSession.swift in Sources */,
-				90814E1822991379006206FD /* ResultsViewController.swift in Sources */,
+				90814E1822991379006206FD /* AchievementsViewController.swift in Sources */,
 				90814E1B2299171C006206FD /* Results.swift in Sources */,
 				90814E2C229F1F13006206FD /* VDOT.swift in Sources */,
 			);
