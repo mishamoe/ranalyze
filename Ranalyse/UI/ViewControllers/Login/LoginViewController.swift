@@ -10,9 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    @IBAction func login(_ sender: Any) {
         DataStore.shared.dataService.stravaAPI.authenticate { [weak self] error in
             if let error = error {
                 self?.showError(error)
@@ -26,5 +24,5 @@ class LoginViewController: UIViewController {
             }
         }
     }
-
+    
 }

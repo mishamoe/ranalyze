@@ -24,9 +24,21 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bO-Lo-wWO">
+                                <rect key="frame" x="183" y="809" width="48" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="fG7-H3-gke" eventType="touchUpInside" id="g3G-A4-oZz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3bO-Lo-wWO" firstAttribute="centerX" secondItem="yhq-Vi-Y1g" secondAttribute="centerX" id="3uA-pI-Wx3"/>
+                            <constraint firstItem="3bO-Lo-wWO" firstAttribute="bottom" secondItem="Fkv-26-jAP" secondAttribute="bottom" constant="-20" id="Lul-ed-YaZ"/>
                             <constraint firstItem="CdR-Xj-ebL" firstAttribute="centerX" secondItem="yhq-Vi-Y1g" secondAttribute="centerX" id="O6J-Mf-TaJ"/>
                             <constraint firstItem="CdR-Xj-ebL" firstAttribute="centerY" secondItem="yhq-Vi-Y1g" secondAttribute="centerY" id="jPj-Pw-hOx"/>
                             <constraint firstItem="CdR-Xj-ebL" firstAttribute="leading" secondItem="Fkv-26-jAP" secondAttribute="leading" constant="20" id="pXo-Mq-QyM"/>
